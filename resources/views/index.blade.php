@@ -37,11 +37,12 @@
 								<li><a href="logout"><i class="fa fa-sign-out" aria-hidden="true"></i><span style="padding-left: 1.5em">Logout</span></a></li>
 							</ul>
 						</li>
-						<li style="margin-top: 10px;"><button class="btn btn-success">Đăng Bài</button></li>
+						<li style="margin-top: 10px;"><button class="btn btn-success"><a href="add_post" style="color:white">Đăng Bài</a></button></li>
 						@else
 						{{-- End thông tin user --}}
 						<li><a href="register_form">Đăng Ký</a></li>
 						<li><a href="login_form">Đăng Nhập</a></li>
+						<li style="margin-top: 10px;"><button class="btn btn-success"><a href="add_post" style="color:white">Đăng Bài</a></button></li>
 						@endif
 					</ul>
 				</div><!-- /.navbar-collapse -->

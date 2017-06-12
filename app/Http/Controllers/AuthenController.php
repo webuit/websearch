@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Auth;
 class AuthenController extends Controller
 {
 	 // Test
-    public function getTest()
+    public function getTest(Request $request)
     {
+        dd($request->n_open_time);
         return view('test');
     }
 	// Form đăng ký
