@@ -1,0 +1,46 @@
+@media all and (max-width: 600px)
+{
+	.hide-banner{
+		display: none;
+	}
+
+	.hide-search{
+		margin-bottom: 30px;
+	}
+
+	.search{
+		margin-top: 0;
+	}
+
+	.header{
+		position: relative;
+	}
+
+	#menu-left{
+		position: absolute;
+		top: -215px;
+		z-index: 999;
+		width: 300px;
+		height: 108%;
+		display: none;
+	}
+
+	#hide-toggle{
+		display: none;
+	}
+	#menu{
+		position: absolute;
+		left: 283px;
+		top :2px;
+	}
+	
+	.add-padding{
+		display: none;
+	}
+
+	.no-padding{
+		padding-bottom: 20px!important;
+    	border-bottom: 2px solid #999;
+	}
+	
+}
