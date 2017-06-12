@@ -32,9 +32,9 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li>
-								<a href="#"><i class="fa fa-user" aria-hidden="true"></i> <span style="padding-left: 2em">{{Auth::user()->name}}</span></a>
+								<a href="#"><i class="fa fa-user" aria-hidden="true"></i> <span style="padding-left: 1.5em">{{Auth::user()->name}}</span></a>
 								</li>
-								<li><a href="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+								<li><a href="logout"><i class="fa fa-sign-out" aria-hidden="true"></i><span style="padding-left: 1.5em">Logout</span></a></li>
 							</ul>
 						</li>
 						<li style="margin-top: 10px;"><button class="btn btn-success">Đăng Bài</button></li>
