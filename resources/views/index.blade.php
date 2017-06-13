@@ -29,11 +29,16 @@
 						{{-- Begin thông tin user --}}
 						@if(Auth::check())
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> <b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->name}} <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li>
-								<a href="#"><i class="fa fa-user" aria-hidden="true"></i> <span style="padding-left: 1.5em">{{Auth::user()->name}}</span></a>
+								<a href="#"> <span style="padding-left: 1.5em">Thông Tin Cá Nhân</span></a>
 								</li>
+
+								<li>
+								<a href="#"> <span style="padding-left: 1.5em">Cập Nhật Thông Tin Cá Nhân</span></a>
+								</li>
+
 								<li><a href="logout"><i class="fa fa-sign-out" aria-hidden="true"></i><span style="padding-left: 1.5em">Logout</span></a></li>
 							</ul>
 						</li>
