@@ -1,8 +1,22 @@
 @include('layouts.header')
-
+<style>
+	.navbar-default{
+		background: #00979C;
+	}
+	.col-sm-10{
+		padding-left: 25px;
+		padding-right: 20px;
+	}
+	h1{
+		color: #00979C;
+	}
+</style>
 <body style="background: white">
+	@include('layouts.menu')
 	<div class="container">
-		<div class="row main">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 ">
+				<div class="row main">
 			<div class="panel-heading">
 				<div class="panel-title text-center">
 					<h1 class="title">Đăng bài</h1>
@@ -93,11 +107,19 @@
 				</div>
 				<div class="form-group">        
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-primary">Submit</button>
+						<button type="submit" class="btn btn-primary">Đăng</button>
 					</div>
 				</div>
 			</form>
 		</div>
+			</div>
+		</div>
 	</div>
+	@include('layouts.footer')
+	<script  type="text/javascript" charset="utf-8" async defer>
+		$(document).ready(function($) {
+			$('#menu').css('display', 'none');
+		});
+	</script>
 </body>
 </html>
