@@ -70,7 +70,7 @@
 				<div class="col-sm-6 col-xs-12">
 					<div class="input-group">
 				      <input type="text" class="form-control" value="{{old('positionName')}}" name="positionName" id="tenvitri" placeholder="Vị trí...">
-				      <input type="text" id="vitri"  name="vitri">
+				      <input type="hidden" id="vitri"  name="vitri">
 				      <span class="input-group-btn">
 				        <button class="btn btn-secondary" id="getPosition" type="button"><span class="glyphicon glyphicon-map-marker"></span></button>
 				      </span>
