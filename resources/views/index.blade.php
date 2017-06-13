@@ -44,6 +44,9 @@
 						<li><a href="login_form">Đăng Nhập</a></li>
 						<li style="margin-top: 10px;"><button class="btn btn-success"><a href="add_post" style="color:white">Đăng Bài</a></button></li>
 						@endif
+						@if(session('No_Category'))
+							<p id="123"></p>
+						@endif
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div>

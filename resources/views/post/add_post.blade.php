@@ -10,7 +10,7 @@
 				</div>
 			</div> 
 
-			{{-- Xuất thông báo về đăng nhập --}}
+			{{-- Xuất thông báo về đăng bài --}}
 			@if( count($errors)>0 )
 			<div class="alert alert-danger">
 				@foreach($errors->all() as $arr)
@@ -18,64 +18,77 @@
 				@endforeach
 			</div>
 			@endif
+			@if(session('notice_success'))
+				<div class="alert alert-success">
+					{{session('notice_success')}}
+				</div>
+			@endif
+			{{-- Kiểm tra login --}}
 			@if(session('error_login'))
 			<div class="alert alert-danger">
 				{{session('error_login')}}
 			</div>
 			@endif
 
-			<form class="form-horizontal" action="test">
+			<form class="form-horizontal" action="process_add_post" enctype="multipart/form-data" method="post">
+			{{csrf_field()}}
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="email">Thể loại:</label>
+					<label class="control-label col-sm-2" for="email">Thể loại:<span style="color: red">*</span></label>
 					<div class="col-sm-10">
-						<select class="form-control" id="sel1">
-							<option>Chọn thể loại</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
+						<select class="form-control" id="" name="n_category">
+							<option disabled selected value="">Chọn thể loại</option>
+							@foreach($category as $valueCategory)
+								<option value="{{$valueCategory->id}}">{{$valueCategory->name}}</option>
+							@endforeach
 						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pwd"> Tiêu đề:<span style="color: red">*</span></label>
+					<div class="col-sm-10">          
+						<input type="text" class="form-control" id="" name="n_title" placeholder="Tiêu đề của bài post" value="{{old('n_title')}}">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd">Hình ảnh:</label>
 					<div class="col-sm-10">          
-						<input type="file" class="form-control" id="" name="">
+						<input type="file" class="form-control" id="" name="n_picture">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd"> Website:</label>
 					<div class="col-sm-10">          
-						<input type="text" class="form-control" id="" name="pwd" placeholder="Địa chỉ website">
+						<input type="text" class="form-control" id="" name="n_website" value="{{old('n_website')}}" placeholder="Địa chỉ website">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd"> Địa chỉ:</label>
 					<div class="col-sm-10">          
-						<input type="text" class="form-control" id="" name="pwd" placeholder="Địa chỉ công ty">
+						<input type="text" class="form-control" id="" name="n_address" placeholder="Địa chỉ công ty" value="{{old('n_address')}}">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd"> Số điện thoại:</label>
 					<div class="col-sm-10">          
-						<input type="number" class="form-control" id="pwd" name="pwd" placeholder="Số điện thoại liên lạc">
+						<input type="number" class="form-control" id="" name="n_phone" placeholder="Số điện thoại liên lạc" value="{{old('n_phone')}}">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="pwd"> Mô tả:</label>
+					<label class="control-label col-sm-2" for="pwd"> Nội dung:<span style="color: red">*</span></label>
 					<div class="col-sm-10">          
-						<textarea name="" class=" form-control" placeholder="Mô tả cho công ty"></textarea>
+						<textarea id="demo" name="n_des" class="form-control ckeditor" placeholder="Mô tả cho công ty">{{old('n_des')}}</textarea>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd"> Giờ mở cửa (7:30:SA):</label>
 					<div class="col-sm-10">          
-						<input type="time" class="form-control" id="" name="n_open_time">
+						<input type="time" class="form-control" id="" name="n_open_time" value="{{old('n_open_time')}}">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="pwd"> Giờ đóng cửa (5:30:CH):</label>
 					<div class="col-sm-10">          
-						<input type="time" class="form-control" id="" name="" >
+						<input type="time" class="form-control" id="" name="n_close_time" value="{{old('n_close_time')}}" >
 					</div>
 				</div>
 				<div class="form-group">        

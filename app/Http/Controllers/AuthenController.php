@@ -12,7 +12,7 @@ class AuthenController extends Controller
 	 // Test
     public function getTest(Request $request)
     {
-        dd($request->n_open_time);
+        dd($request->n_des);
         return view('test');
     }
 	// Form đăng ký
