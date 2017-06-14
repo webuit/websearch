@@ -9,10 +9,8 @@
 		line-height: 1.8;
 		background: #EEEEEE;
 	}
-	.photo{
-		height: 250px;
-		width: 300px;
-		border:1px solid #333;
+	.photo img{
+		border-radius: 8px;
 	}
 
 	.fa-location-arrow:before{
@@ -37,11 +35,38 @@
 		text-decoration: none;
 		padding-top: 10px;
 		width: 100%;
+		height: 48px;
 		font-weight: 700;
 	}
 	.micro-item:hover{
 		color: #046e96;
 		background: #f8f8f8;
+		outline: none;
+	}
+	.micro-item .micro-title>a:focus{
+		outline: none;
+	}
+
+	.image-post img{
+		float: left;
+	}
+
+	.image-post{
+		padding: 0;
+	}
+	.post-content{
+		float: left;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 20px;
+		
+	}
+	.post-content a{
+		color: #333;
+	}
+
+	.clear-fix{
+		clear: both;
 	}
 </style>
 <body>
@@ -50,13 +75,13 @@
 		<div class="panel-group shadowpanel">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h4>Nhà Hàng Hanuri</h4>
+					<h3>Nhà Hàng Hanuri</h3>
 				</div>
 				<div class="panel-body">
 					<div class="row" style="height: 100%">
 						<div class="col-md-4">
 							<div class="photo">
-								<img src="{{url('images/sp.jpg')}}" width="300px" height="250px" alt="">
+								<img src="{{url('images/sp.jpg')}}" width="270px" height="250px" alt="">
 							</div>
 						</div>
 
@@ -97,7 +122,7 @@
 						<div class="col-md-3 micro-item">
 							<div class="micro-title">
 								
-								<a href=""><i class="fa fa-phone"></i> Gọi điện</a>
+								<a href="" data-toggle="modal" data-target="#modal-phone"><i class="fa fa-phone"></i> Gọi điện</a>
 							</div>
 						</div>
 
@@ -165,16 +190,13 @@ Nhân viên phục vụ ok. Nhà vệ sinh thì hơi hôi mùi chó, nên b
 					</span>
 				</div>
 
-
-
-
-			</div>
-
-			
+			</div>		
 		</div>
 		<hr>
 		<!-- End Bình Luận -->
-		
+		<!-- Phần để viết Bình luận -->
+				THÊM PHẦN ĐỂ VIẾT BÌNH LUẬN VÀO ĐÂY
+		<!-- End phần viết bình luận -->
 	</div>
 	<div class="col-md-3">
 		<div class="panel-group shadowpanel">
@@ -183,16 +205,48 @@ Nhân viên phục vụ ok. Nhà vệ sinh thì hơi hôi mùi chó, nên b
 					<h4>Bài Viết Mới</h4>
 			</div>
 			<div class="panel-body">
-				<div class="col-md-4">
-					<div class="profile">
-						
+				<div class="col-md-12">
+					<div class="col-md-3 image-post">
+						<img width="60px" height="60px" src="https://media.foody.vn/res/g32/311135/s180x180/foody-mi-cay-omega-lac-long-quan-694-636330675884556469.jpg" class="img-responsive img-thumbnail">
+					</div>
+					<div class="col-md-9 post-content">
+						<a href="">Quán Ăn Hàn Quốc Hanuri</a>
+						<hr>
+					</div>
+				</div>
+				<div class="clear-fix"></div>
+				<hr>
+				<div class="col-md-12" >
+					<div class="col-md-3 image-post">
+						<img width="60px" height="60px" src="https://media.foody.vn/res/g5/42857/prof/s480x300/foody-mobile-a1-jpg-219-635760098350582221.jpg" class="img-responsive img-thumbnail">
+					</div>
+					<div class="col-md-9 post-content">
+						<a href="">Mì cay Naga Làng Đại Học</a>
+						<hr>
 					</div>
 				</div>
 			</div>
 		</div> 
 		</div>
 	</div>
+
+	<!-- End bài viết mới -->
 </div>
+<!-- Modal -->
+  <div class="modal fade" id="modal-phone" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Điện Thoại</h4>
+        </div>
+        <div class="modal-body">
+          <i class="fa fa-phone"></i>
+          <span style="font-size: 16px;">0974755854</span>
+        </div>
+      </div>
+    </div>
+  </div>
 <script>
   $(document).ready(function(){
 

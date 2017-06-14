@@ -4,51 +4,50 @@
 
       <div class="item active">
         <div class="col-xs-12 col-sm-6 col-md-2">
-          <a href="#"><img src="https://s12.postimg.org/655583bx9/item_1_180x200.png" class="img-responsive center-block"></a>
-          <h4 class="text-center">MAYORAL SUKNJA</h4>
-          <h5 class="text-center">4000,00 RSD</h5>
+          <a href="#"><img src="https://media.foody.vn/res/g5/42857/prof/s480x300/foody-mobile-a1-jpg-219-635760098350582221.jpg" class="center-block" width="125px" height="125px"></a>
+          <h4 class="text-center">Trà Sữa Trân Châu</h4>
+          <h5 class="text-center">15,000đ</h5>
         </div>
       </div>
 
       <div class="item">
         <div class="col-xs-12 col-sm-6 col-md-2">
-          <a href="#"><img src="https://s12.postimg.org/41uq0fc4d/item_2_180x200.png" class="img-responsive center-block"></a>
-          <h4 class="text-center">MAYORAL KOŠULJA</h4>
-          <h5 class="text-center">4000,00 RSD</h5>
+          <a href="#"><img src="https://media.foody.vn/res/g17/163500/prof/s480x300/foody-mobile-mb-jpg-871-635763797103818738.jpg" class=" center-block" width="125px" height="125px"></a>
+          <h4 class="text-center">Lẩu Thái</h4>
+          <h5 class="text-center">150,000đ</h5>
         </div>
       </div>
 
       <div class="item">
         <div class="col-xs-12 col-sm-6 col-md-2">
-          <a href="#"><img src="https://s12.postimg.org/dawwajl0d/item_3_180x200.png" class="img-responsive center-block"></a>
-          <span class="badge">10%</span>
-          <h4 class="text-center">PANTALONE TERI 2</h4>
-          <h5 class="text-center">4000,00 RSD</h5>
-          <h6 class="text-center">5000,00 RSD</h6>
+          <a href="#"><img src="https://media.foody.vn/res/g65/641876/prof/s480x300/foody-mobile-hmbbd-jpg-973-636245714051998743.jpg" class=" center-block" width="125px" height="125px"></a>
+          
+          <h4 class="text-center"><span class="badge">10%</span>Cafe Fell</h4>
+          <h5 class="text-center">40.000đ</h5>
         </div>
       </div>
 
       <div class="item">
         <div class="col-xs-12 col-sm-6 col-md-2">
-          <a href="#"><img src="https://s12.postimg.org/5w7ki5z4t/item_4_180x200.png" class="img-responsive center-block"></a>
-          <h4 class="text-center">CVETNA HALJINA</h4>
-          <h5 class="text-center">4000,00 RSD</h5>
+          <a href="#"><img src="https://media.foody.vn/res/g23/226222/prof/s480x300/foody-mobile-5-jpg-562-635956463925714390.jpg" class="center-block" width="125px" height="125px"></a>
+          <h4 class="text-center">Bún Đậu</h4>
+          <h5 class="text-center">40.000đ</h5>
         </div>
       </div>
 
       <div class="item">
         <div class="col-xs-12 col-sm-6 col-md-2">
-          <a href="#"><img src="https://s12.postimg.org/e2zk9qp7h/item_5_180x200.png" class="img-responsive center-block"></a>
-          <h4 class="text-center">MAJICA FOTO</h4>
-          <h5 class="text-center">4000,00 RSD</h5>
+          <a href="#"><img src="https://media.foody.vn/res/g12/112158/s180x180/foody-oromia-coffee-nam-ky-khoi-nghia-449-636147957357653385.jpg" class=" center-block" width="125px" height="125px"></a>
+          <h4 class="text-center">Bánh Kem</h4>
+          <h5 class="text-center">4000</h5>
         </div>
       </div>
 
       <div class="item">
         <div class="col-xs-12 col-sm-6 col-md-2">
-          <a href="#"><img src="https://s12.postimg.org/46yha3jfh/item_6_180x200.png" class="img-responsive center-block"></a>
-          <h4 class="text-center">MAJICA MAYORAL</h4>
-          <h5 class="text-center">4000,00 RSD</h5>
+          <a href="#"><img src="https://media.foody.vn/res/g12/112158/s180x180/foody-oromia-coffee-nam-ky-khoi-nghia-347-636328974404330117.jpg" class=" center-block" width="125px" height="125px"></a>
+          <h4 class="text-center">Xúc Xích</h4>
+          <h5 class="text-center">4000 RSD</h5>
         </div>
       </div>
 
