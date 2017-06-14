@@ -23,6 +23,11 @@
 					{{session('error_login')}}
 				</div>
 			@endif
+			@if(session('login_request'))
+				<div class="alert alert-danger">
+					{{session('login_request')}}
+				</div>
+			@endif
 
 			<div class="col-md-8 col-md-offset-2">
 

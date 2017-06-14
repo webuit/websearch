@@ -20,5 +20,10 @@
     
 	<link href="https://fonts.googleapis.com/css?family=Monoton|Ubuntu" rel="stylesheet">  
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg"></script> 
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="{{asset('js/jquery.js')}}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Ubuntu" rel="stylesheet">  
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg"></script>  
+    <script type="text/javascript" language="javascript" src="ckeditor/ckeditor.js" ></script>
 
 </head>

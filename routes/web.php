@@ -33,3 +33,6 @@ Route::get('add_post', 'PostController@getAddPost')->middleware('user_login');
 Route::get('showpost',function(){
 	return view('showpost.post');
 });
+// Xử lý thêm post bài
+Route::post('process_add_post', 'PostController@post_process_add_post');
+// ----------------------------End Post bài----------------------------

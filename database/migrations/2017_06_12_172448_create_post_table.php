@@ -17,12 +17,13 @@ class CreatePostTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->string('title');
             $table->string('tag')->nullable();
             $table->string('photo')->nullable();
             $table->string('website')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->time('open_time')->nullable();
             $table->time('close_time')->nullable();
             $table->timestamps();

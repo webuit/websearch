@@ -22,7 +22,7 @@ class UserLoginMiddleware
         }
         else
         {
-            return redirect('login_form');
+            return redirect('login_form')->with('login_request','Vui lòng đăng nhập để thực hiện chức năng này.');
         }
     }
 }
