@@ -29,3 +29,7 @@ Route::get('logout', 'AuthenController@getLogout');
 // Thêm bài post
 Route::get('add_post', 'PostController@getAddPost')->middleware('user_login');
 // ----------------------------End Post bài----------------------------
+//Show bài post
+Route::get('showpost',function(){
+	return view('showpost.post');
+});
