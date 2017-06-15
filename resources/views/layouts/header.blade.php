@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>ITFood</title>
+    <script src="{{asset('js/jquery.js')}}"></script>
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/rolltop.css')}}" rel="stylesheet">
@@ -15,6 +16,10 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+	<link href="https://fonts.googleapis.com/css?family=Monoton|Ubuntu" rel="stylesheet">  
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg"></script> 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src="{{asset('js/jquery.js')}}"></script>
     <link href="https://fonts.googleapis.com/css?family=Monoton|Ubuntu" rel="stylesheet">  

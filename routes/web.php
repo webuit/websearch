@@ -28,6 +28,11 @@ Route::get('logout', 'AuthenController@getLogout');
 // -------------------Begin Post bài----------------------------
 // Thêm bài post
 Route::get('add_post', 'PostController@getAddPost')->middleware('user_login');
+// ----------------------------End Post bài----------------------------
+//Show bài post
+Route::get('showpost',function(){
+	return view('showpost.post');
+});
 // Xử lý thêm post bài
 Route::post('process_add_post', 'PostController@post_process_add_post');
 // Danh sách bài post
@@ -46,3 +51,4 @@ Route::get('aj_asd/1', function(){
 });
 
 // Route::post('ajax_comment', 'PostController@getAjaxComment')->name('ajax_comment');
+// ----------------------------End Post bài----------------------------
