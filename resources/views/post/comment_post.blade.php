@@ -7,17 +7,18 @@
 			<label class="control-label col-sm-2" for="pwd"> Comment:<span style="color: red">*</span></label>
 			<form action="">
 			<div class="col-sm-10">          
-			<textarea id="demo" name="n_des" class="form-control ckeditor" placeholder="Mô tả cho công ty"></textarea>
+			<textarea id="demo" name="n_comment" class="form-control ckeditor" placeholder="Mô tả cho công ty"></textarea>
 			</div>
 			@if(Auth::check())
 				{{-- Biến user login --}}
 				@php
 					$user = App\User::find(Auth::user()->id);
-					$urlComment = {{route('ajax_comment')}}.'/'.{{$post->id}}; 
+					
 				@endphp
-				<button type="button" class="btn btn-primary cl_sm" id="{{$post->id}}" name="{{route('ajax_comment')}}.'/'.{{$post->id}}">Đăng</button>
+				<input type="hidden" id="id_idPost" name="{{$idPost}}">
+				<button type="button" class="btn btn-primary cl_sm" id="{{$post->id}}" name="{{route('ajax_comment')}}">Đăng</button>
 			@else
-			<button type="submit" disabled class="btn btn-primary">Đăng nhập để bình luận</button>
+			<button type="button" disabled class="btn btn-primary">Đăng nhập để bình luận</button>
 			@endif
 			</form>
 		</div>
@@ -40,9 +41,13 @@
 <script>
 	$(document).ready(function(){
 		$(".cl_sm").click(function(){
+			// url = đường dẫn ajax
 			var url = $(this).attr('name');
-			alert(url);
-			$.get(url , function(data){
+			// Lấy thông tin comment
+			var comment = $('#demo').val();
+			// Lấy id post
+			var idPost = $("#id_idPost").attr('name');
+			$.get(url, {comment:comment, idPost:idPost} , function(data){
 				$("#ajaxComment").html(data);
 			});
 		});

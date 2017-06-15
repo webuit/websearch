@@ -11,6 +11,11 @@ use App\comment;
 
 class PostController extends Controller
 {
+    // Show bài post
+    public function getShowPost()
+    {
+        return view('showpost.post');
+    }
     // Thêm bài post
     public function getAddPost()
     {
@@ -103,13 +108,27 @@ class PostController extends Controller
     {
         $post = post::find($idPost);
         $comment = comment::where('post_id', $idPost)->orderBy('created_at','desc')->get();
-        return view('post.comment_post', ['post'=>$post, 'comment'=>$comment]);
+        return view('post.comment_post', ['post'=>$post, 'comment'=>$comment, 'idPost'=>$idPost]);
     }
 
     // Ajax comment
-    public function getAjaxComment()
+    public function getAjaxComment(Request $request)
     {
-        $comment = comment::where('post_id', 1)->orderBy('created_at','desc')->get();
+        // id post
+        $idPost = $request->idPost;
+        // Nội dung comment
+        $contentComment = $request->comment;
+        // id nguời post bài
+        $idUser = Auth::user()->id;
+        // Thêm comment vào db
+        $comment = new comment;
+        $comment->user_id = $idUser;
+        $comment->post_id = $idPost;
+        $comment->content = $contentComment;
+        $comment->save();
+
+        // Trả lại danh sách comment AJAX
+        $comment = comment::where('post_id', $idPost)->orderBy('created_at','desc')->get();
         return view('post.ajax_comment', ['comment'=>$comment]);
     }
 }

@@ -20,28 +20,35 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{-- Begin thông tin user --}}
-        @if(Auth::check())
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img width="25em" height="20em"  src="{{asset('upload/picture/profile/default.jpg')}}" alt=""> <span style="padding-left: 0.5em"></span> {{Auth::user()->name}} <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li>
-            <a href="#"> <span style="padding-left: 1.5em">Thông Tin Cá Nhân</span></a>
-            </li>
+            @if(Auth::check())
+            {{-- biến $user --}}
+            @php
+            $user = App\User::find(Auth::user()->id);
+            @endphp
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img width="25em" height="20em"  src="{{asset('upload/picture/profile/').'/'.$user->profile->avatar}}" alt=""><span style="padding-left: 0.5em"></span>{{Auth::user()->name}} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                <a href="#"><i class="fa fa-user" aria-hidden="true"></i><span style="padding-left: 1.5em">Thông Tin Cá Nhân</span></a>
+                </li>
 
-            <li>
-            <a href="#"> <span style="padding-left: 1.5em">Cập Nhật Thông Tin Cá Nhân</span></a>
-            </li>
+                <li>
+                <a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span style="padding-left: 1.5em">Cập Nhật Thông Tin Cá Nhân</span></a>
+                </li>
 
-            <li><a href="logout"><i class="fa fa-sign-out" aria-hidden="true"></i><span style="padding-left: 1.5em">Logout</span></a></li>
-          </ul>
-        </li>
-        <li style="margin-top: 10px;"><button class="btn btn-success"><a href="add_post" style="color:white">Đăng Bài</a></button></li>
-        @else
-        {{-- End thông tin user --}}
-        <li><a href="register_form">Đăng Ký</a></li>
-        <li><a href="login_form">Đăng Nhập</a></li>
-        <li style="margin-top: 10px;"><button class="btn btn-success"><a href="add_post" style="color:white">Đăng Bài</a></button></li>
-        @endif
+                <li><a href="logout"><i class="fa fa-sign-out" aria-hidden="true"></i><span style="padding-left: 1.5em">Logout</span></a></li>
+              </ul>
+            </li>
+            <li style="margin-top: 10px;"><button class="btn btn-success"><a href="add_post" style="color:white">Đăng Bài</a></button></li>
+            @else
+            {{-- End thông tin user --}}
+            <li><a href="register_form">Đăng Ký</a></li>
+            <li><a href="login_form">Đăng Nhập</a></li>
+            <li style="margin-top: 10px;"><button class="btn btn-success"><a href="add_post" style="color:white">Đăng Bài</a></button></li>
+            @endif
+            @if(session('No_Category'))
+              <p id="123"></p>
+            @endif
       </ul>
     </div><!-- /.navbar-collapse -->
   </div>

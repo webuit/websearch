@@ -160,6 +160,22 @@
 		<!-- Phần Bình luận -->
 		<div class="row" style="margin:0;">
 			<div class="col-md-12" style="background: #fff;">
+			<div style="padding-top: 2em">
+				<textarea id="" name="n_comment" class="form-control " placeholder="Bình luận cho bài viết"></textarea>
+			</div>
+			<div>
+				@if(Auth::check())
+				{{-- Biến user login --}}
+				@php
+				$user = App\User::find(Auth::user()->id);
+				@endphp
+				<input type="hidden" id="id_idPost" name="">
+				<button type="button" class="btn btn-primary cl_sm" id="" name="">Đăng</button>
+				@else
+				<button type="button" disabled class="btn btn-primary">Đăng nhập để bình luận</button>
+				@endif
+			</div>
+			<hr>
 				<div class="comment" style="width: 100%;height: 70px;">
 					<div class="comment-head" style="float: left;">
 						<a href=""><img width="60px" height="60px" src="https://s12.postimg.org/46yha3jfh/item_6_180x200.png" class="img-responsive img-circle"></a>
