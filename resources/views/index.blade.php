@@ -28,15 +28,19 @@
 					<ul class="nav navbar-nav navbar-right">
 						{{-- Begin thông tin user --}}
 						@if(Auth::check())
+						{{-- biến $user --}}
+						@php
+						$user = App\User::find(Auth::user()->id);
+						@endphp
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->name}} <b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img width="25em" height="20em"  src="{{asset('upload/picture/profile/').'/'.$user->profile->avatar}}" alt=""><span style="padding-left: 0.5em"></span>{{Auth::user()->name}} <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li>
-								<a href="#"> <span style="padding-left: 1.5em">Thông Tin Cá Nhân</span></a>
+								<a href="#"><i class="fa fa-user" aria-hidden="true"></i><span style="padding-left: 1.5em">Thông Tin Cá Nhân</span></a>
 								</li>
 
 								<li>
-								<a href="#"> <span style="padding-left: 1.5em">Cập Nhật Thông Tin Cá Nhân</span></a>
+								<a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span style="padding-left: 1.5em">Cập Nhật Thông Tin Cá Nhân</span></a>
 								</li>
 
 								<li><a href="logout"><i class="fa fa-sign-out" aria-hidden="true"></i><span style="padding-left: 1.5em">Logout</span></a></li>

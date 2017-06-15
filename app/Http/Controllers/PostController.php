@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\category;
 use App\post;
+use App\comment;
 
 class PostController extends Controller
 {
@@ -30,12 +31,14 @@ class PostController extends Controller
     	$this->validate($request, 
     		[
     			'n_category' => 'required',
-    			'n_title' => 'required',
+    			'n_title' => 'required|min:5|max:100',
     			'n_des' => 'required',
     		],
     		[
-    			'n_category.required' => "Bạn chưa chọn thể loại.",
-    			'n_title.required' => "Bạn chưa nhập tiêu đề.",
+                'n_category.required' => "Bạn chưa chọn thể loại.",
+                'n_title.required' => "Bạn chưa nhập tiêu đề.",
+                'n_title.min' => "Độ dài Tiêu đề tối thiểu phải 5 ký tự.",
+    			'n_title.max' => "Độ dài Tiêu đề tối đa là 100 ký tự.",
     			'n_des.required' => "Bạn chưa nhập nội dung.",
     		]
     	);
@@ -86,5 +89,27 @@ class PostController extends Controller
     	$post->save();
 
     	return redirect('add_post')->with('notice_success', 'Bạn đã đăng bài thành công');
+    }
+
+    // Danh sách bài post
+    public function getListPost()
+    {
+        $post = Post::all();
+        return view ('post.list_post', ['post'=>$post]);
+    }
+
+    // Comment bai post
+    public function getComment($idPost)
+    {
+        $post = post::find($idPost);
+        $comment = comment::where('post_id', $idPost)->orderBy('created_at','desc')->get();
+        return view('post.comment_post', ['post'=>$post, 'comment'=>$comment]);
+    }
+
+    // Ajax comment
+    public function getAjaxComment()
+    {
+        $comment = comment::where('post_id', 1)->orderBy('created_at','desc')->get();
+        return view('post.ajax_comment', ['comment'=>$comment]);
     }
 }

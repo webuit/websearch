@@ -22,7 +22,7 @@
         {{-- Begin thông tin user --}}
         @if(Auth::check())
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->name}} <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img width="25em" height="20em"  src="{{asset('upload/picture/profile/default.jpg')}}" alt=""> <span style="padding-left: 0.5em"></span> {{Auth::user()->name}} <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li>
             <a href="#"> <span style="padding-left: 1.5em">Thông Tin Cá Nhân</span></a>

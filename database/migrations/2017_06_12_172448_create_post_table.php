@@ -18,8 +18,8 @@ class CreatePostTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->string('title');
+            $table->string('photo');
             $table->string('tag')->nullable();
-            $table->string('photo')->nullable();
             $table->string('website')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();

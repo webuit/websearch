@@ -17,4 +17,9 @@ class post extends Model
     {
     	return $this->belongsTo('App\category', 'category_id', 'id');
     }
+
+    public function postPicture()
+    {
+    	return $this->hasMany('App\postPicture', 'post_id', 'id');
+    }
 }

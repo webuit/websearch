@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\User;
+use App\profile;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class AuthenController extends Controller
 {
@@ -57,6 +59,14 @@ class AuthenController extends Controller
         $user->password = bcrypt($request->password);
         $user->role = 0;
         $user->save();
+        // Tạo profile tương ứng
+        $profile = new Profile;
+        // lấy user vừa mới tạo
+        $user_id_last = DB::table('users')->orderBy('id', 'desc')->first()->id;
+        $profile->user_id = $user_id_last;
+        $profile->user_id = $user_id_last;
+        $profile->avatar = "default.jpg";
+        $profile->save();
 
         return redirect('register_form')->with('register_notice', 'Chúc mừng! Bạn đã đăng ký thành công');
     }

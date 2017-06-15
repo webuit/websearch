@@ -21,6 +21,7 @@
 				<div class="panel-title text-center">
 					<h1 class="title">Đăng bài</h1>
 					<hr />
+					<h3><span style="color: red">*</span>:Bắt buộc phải nhập</h2>
 				</div>
 			</div> 
 
@@ -64,7 +65,31 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="pwd">Hình ảnh:</label>
+					<label class="control-label col-sm-2" for="pwd">Hình bài post: <span style="color: red">*</span></label>
+					<div class="col-sm-10">          
+						<input type="file" class="form-control" id="" name="n_picture">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pwd">Hình liên quan đến bài post 1:</label>
+					<div class="col-sm-10">          
+						<input type="file" class="form-control" id="" name="n_picture">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pwd">Hình liên quan đến bài post 2:</label>
+					<div class="col-sm-10">          
+						<input type="file" class="form-control" id="" name="n_picture">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pwd">Hình liên quan đến bài post 3:</label>
+					<div class="col-sm-10">          
+						<input type="file" class="form-control" id="" name="n_picture">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pwd">Hình liên quan đến bài post 4:</label>
 					<div class="col-sm-10">          
 						<input type="file" class="form-control" id="" name="n_picture">
 					</div>
@@ -115,11 +140,15 @@
 			</div>
 		</div>
 	</div>
+
+
+
 	@include('layouts.footer')
 	<script  type="text/javascript" charset="utf-8" async defer>
 		$(document).ready(function($) {
 			$('#menu').css('display', 'none');
 		});
 	</script>
+
 </body>
 </html>

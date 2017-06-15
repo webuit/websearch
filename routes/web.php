@@ -7,7 +7,7 @@ Route::get('index',"HomeController@getPosition")->name('getPosition');
 Route::get('direct/{position}/{endposition}/{ogrigin}/{destination}',"HomeController@direct")->name('direct');
 Route::get('move/{position}',"HomeController@directMove")->name('move');
 
-// ---------------------- Login- Register------------------------------
+// ------------- Login- Register------------------------------
 Route::get('test', 'AuthenController@getTest');
 // Quản lý danh sách account
 Route::get('list_user', 'AuthenController@getListUser');
@@ -24,10 +24,25 @@ Route::get('login_form', 'AuthenController@getLoginForm');
 Route::post('process_login', 'AuthenController@postProcessLogin');
 // Đăng xuất
 Route::get('logout', 'AuthenController@getLogout');
-// ---------------------End Login- Register-------------------------
-// ----------------------------Begin Post bài----------------------------
+// -----------------End Login- Register-------------------------
+// -------------------Begin Post bài----------------------------
 // Thêm bài post
 Route::get('add_post', 'PostController@getAddPost')->middleware('user_login');
 // Xử lý thêm post bài
 Route::post('process_add_post', 'PostController@post_process_add_post');
-// ----------------------------End Post bài----------------------------
+// Danh sách bài post
+Route::get('list_post', 'PostController@getListPost');
+// ----------------End Post bài----------------------------
+// ----------------Begin comment post--------------------
+// thông tin bài post và comment
+Route::get('comment/{idPost}', 'PostController@getComment');
+// ajax comment
+Route::get('ajax_comment/{idPost}', 'PostController@getAjaxComment');
+// ---------------End comment post-----------------------------
+
+// test
+Route::get('aj_asd/1', function(){
+	return view('post.test');
+});
+
+// Route::post('ajax_comment', 'PostController@getAjaxComment')->name('ajax_comment');
