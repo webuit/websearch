@@ -111,8 +111,8 @@
 							</div>
 
 							<div class="price">
-								<span class="fa fa-tag minmaxpriceicon"></span>
-								<span>28000đ - 89000đ</span>
+								<span class="fa fa-internet-explorer"></span>
+								<a href="{{$curentPost->website}}"><span>{{$curentPost->website}}</span></a>
 							</div>
 						</div>
 					</div>
@@ -333,4 +333,4 @@ itemToClone.children(':first-child').clone()
 </script>
 @include('layouts.footer')
 	
-</body
+</body>

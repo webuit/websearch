@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\post;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,9 @@ class HomeController extends Controller
         $vitri2= str_replace(')','',$vitri1);
         $vitri3=str_replace(' ','',$vitri2);
         $ogrigin =str_replace('/','-',$request->positionName);;
-    	return view('index',['keyword'=>$keyword,'vitri'=>$vitri3,'ogrigin'=>$ogrigin]);
+        // Hiển thị các bài viết mới
+        $post = post::orderBy('created_at', 'desc')->take(3)->get();
+    	return view('index',['keyword'=>$keyword,'vitri'=>$vitri3,'ogrigin'=>$ogrigin, 'post'=>$post]);
     }
 
     public function direct($position="",$endposition="",$ogrigin="",$destination="")

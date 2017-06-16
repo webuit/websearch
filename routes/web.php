@@ -24,6 +24,8 @@ Route::get('login_form', 'AuthenController@getLoginForm');
 Route::post('process_login', 'AuthenController@postProcessLogin');
 // Đăng xuất
 Route::get('logout', 'AuthenController@getLogout');
+// Thông tin account user
+Route::get('info_user/{userId?}', 'AuthenController@getInfoUser');
 // -----------------End Login- Register-------------------------
 // -------------------Begin Post bài----------------------------
 // Thêm bài post

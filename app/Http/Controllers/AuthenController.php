@@ -122,4 +122,11 @@ class AuthenController extends Controller
     {
         dd($a);
     }
+
+    // Quản lý thông tin user
+    public function getInfoUser($userId)
+    {
+        $user = User::find($userId);
+        return view('login.info_user', ['user'=>$user]);
+    }
 }
