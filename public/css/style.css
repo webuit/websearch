@@ -232,6 +232,7 @@ body {
 }
 .sidebar-left{
     background-color: #fff;
+    margin-top: 80px;
     border-right: 1px solid #ccc;
 }
 

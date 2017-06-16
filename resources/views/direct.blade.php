@@ -21,8 +21,9 @@
        .navbar-default{
         background: #00979C;
        }
-      #map {
-        height: 100%;
+     #map {
+        height: 600px;
+        width: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -63,7 +64,6 @@
       #right-panel {
         height: 100%;
         float: right;
-        width: 390px;
         overflow: auto;
       }
       #map {
@@ -115,8 +115,16 @@
         </div>
       </div>
     </div>
-    <div id="right-panel"></div>
-    <div id="map"></div>
+    <div class="row">
+      <div class="col-md-8">
+        <div id="map"></div>
+      </div>
+
+      <div class="col-md-4">
+        <div id="right-panel"></div>
+    
+      </div>
+    </div>
     <script src="{{asset('js/jquery.js')}}"></script>
     <script>
 

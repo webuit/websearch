@@ -158,32 +158,8 @@
 <section class="content-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div id="menu-left" class="col-md-2 no-padding sidebar-left">
-				<div class="menu-left-fix">
-					<p style="margin-top: 20px;font-size: 16px;font-weight: bold;padding-left: 25px;"> Danh sách các nhà hàng </p>
-
-					<ul class="menu-v">
-						<li class="menu-v"><a class="menu-v-a href="#">Ngoại Ngữ</a></li>
-						<li><a class="menu-v-a" href="#">Tin Học</a>
-							<ul class="sub-menu">
-								<li><a href="#">Ngoại Ngữ</a></li>
-								<li><a href="#">Ngoại Ngữ</a></li>
-								<li><a href="#">Ngoại Ngữ</a></li>
-								<li><a href="#">Ngoại Ngữ</a></li>
-							</ul>
-						</li>
-						<li><a class="menu-v-a" href="#">Ngoại Ngữ</a></li>
-						<li><a class="menu-v-a" href="#">Ngoại Ngữ</a></li>
-						<li><a class="menu-v-a" href="#">Ngoại Ngữ</a></li>
-						<li><a class="menu-v-a" href="#">Ngoại Ngữ</a></li>
-						<li><a class="menu-v-a" href="#">Ngoại Ngữ</a></li>
-						<li><a class="menu-v-a" href="#">Ngoại Ngữ</a></li>
-						<li><a class="menu-v-a" href="#">Ngoại Ngữ</a></li>
-						<li><a class="menu-v-a" href="#">Ngoại Ngữ</a></li>
-					</ul>
-				</div>
-			</div>
-			<div id="menu-right" class="col-md-10 sidebar-right" >
+			
+			<div id="menu-right" class="col-md-9 sidebar-right" >
 				<div class="col-md-12 realdata">
 					<div class="col-md-6 mini-padding">
 						<div style="font-size:16px;padding-bottom:10px;" class="">
@@ -252,6 +228,121 @@
 				</div>
 <!-- LIST 2 -->
 			</div>
+			<div id="menu-left" class="col-md-3 no-padding sidebar-left">
+				<div class="menu-left-fix">
+					<p style="margin-top: 20px;font-size: 16px;font-weight: bold;padding-left: 25px;"> Bài viết mới nhất </p>
+
+					<hr>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="col-md-5 col-xs-5" style="height: 150px;padding: 0 0 0 5px;">
+							<div class="info-image">
+								<img src="https://media.foody.vn/res/g15/148046/prof/s576x330/foody-mobile-2-jpg-245-636232835651339682.jpg" alt="" height="150px" width="100%" style="border-radius: 5px;">
+							</div>
+							
+						</div>
+
+						<div class="col-md-7 col-xs-7" style="height: 160px;">
+							<div class="info-title">
+								<span>Nhà hàng Biển Xanh</span>
+							</div>
+							<div class="address">
+									<span class="fa fa-location-arrow locationicon"></span>
+									<span>
+										<a href=""><span>306 Nguyễn Tri Phương, P. 4, Quận 10 , TP.HCM</span></a>
+									</span>
+								</div>
+
+								<div class="time-line">
+									<span class="fa fa-clock-o houricon"></span>
+									<span title=" | 09:00 AM - 10:00 PM">09:00 AM - 10:00 PM</span>
+								</div>
+
+								<div class="price">
+									<span class="fa fa-tag minmaxpriceicon"></span>
+									<span>28000đ - 89000đ</span>
+								</div>
+							
+						</div>
+						</div>
+					</div>
+					
+					<!-- End Item 1 -->
+					<hr>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="col-md-5 col-xs-5" style="height: 150px;padding: 0 0 0 5px;">
+							<div class="info-image">
+								<img src="https://media.foody.vn/res/g15/148046/prof/s576x330/foody-mobile-2-jpg-245-636232835651339682.jpg" alt="" height="150px" width="100%" style="border-radius: 5px;">
+							</div>
+							
+						</div>
+
+						<div class="col-md-7 col-xs-7" style="height: 160px;">
+							<div class="info-title">
+								<span>Nhà hàng Biển Xanh</span>
+							</div>
+							<div class="address">
+									<span class="fa fa-location-arrow locationicon"></span>
+									<span>
+										<a href=""><span>306 Nguyễn Tri Phương, P. 4, Quận 10 , TP.HCM</span></a>
+									</span>
+								</div>
+
+								<div class="time-line">
+									<span class="fa fa-clock-o houricon"></span>
+									<span title=" | 09:00 AM - 10:00 PM">09:00 AM - 10:00 PM</span>
+								</div>
+
+								<div class="price">
+									<span class="fa fa-tag minmaxpriceicon"></span>
+									<span>28000đ - 89000đ</span>
+								</div>
+							
+						</div>
+						</div>
+					</div>
+					
+					<!-- End Item 2 -->
+					<hr>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="col-md-5 col-xs-5" style="height: 150px;padding: 0 0 0 5px;">
+							<div class="info-image">
+								<img src="https://media.foody.vn/res/g15/148046/prof/s576x330/foody-mobile-2-jpg-245-636232835651339682.jpg" alt="" height="150px" width="100%" style="border-radius: 5px;">
+							</div>
+							
+						</div>
+
+						<div class="col-md-7 col-xs-7" style="height: 160px;">
+							<div class="info-title">
+								<span>Nhà hàng Biển Xanh</span>
+							</div>
+							<div class="address">
+									<span class="fa fa-location-arrow locationicon"></span>
+									<span>
+										<a href=""><span>306 Nguyễn Tri Phương, P. 4, Quận 10 , TP.HCM</span></a>
+									</span>
+								</div>
+
+								<div class="time-line">
+									<span class="fa fa-clock-o houricon"></span>
+									<span title=" | 09:00 AM - 10:00 PM">09:00 AM - 10:00 PM</span>
+								</div>
+
+								<div class="price">
+									<span class="fa fa-tag minmaxpriceicon"></span>
+									<span>28000đ - 89000đ</span>
+								</div>
+							
+						</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- End phan side -->
+			</div>
+
 		</div>
 	</div>
 </section>

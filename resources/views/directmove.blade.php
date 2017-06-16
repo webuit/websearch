@@ -15,6 +15,9 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Monoton|Ubuntu" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi-oPYdlnMKX_sG7qB-eFhmLh9vHE41n4&callback=initMap">
+    </script>
    
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -23,7 +26,8 @@
         background: #00979C;
        }
       #map {
-        height: 100%;
+        height: 800px;
+        width: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -64,7 +68,6 @@
       #right-panel {
         height: 100%;
         float: right;
-        width: 390px;
         overflow: auto;
       }
       #map {
@@ -102,13 +105,22 @@
 <button >Định vị</button> -->
 
 <p id="demo"></p>
-    <div id="floating-panel">
+<div id="floating-panel">
       
-        <input type="hidden" id="start">
+<input type="hidden" id="start">
       
-    </div>
-    <div id="right-panel"></div>
+</div>
+<div class="row">
+  <div class="col-md-8">
     <div id="map"></div>
+  </div>
+
+  <div class="col-md-4">
+    <div id="right-panel"></div>
+  </div>
+</div>
+@include('layouts.footer')   
+    
         <script>
 var x = document.getElementById("demo");
 
@@ -166,8 +178,6 @@ function showPosition(position) {
       }
     </script>
 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi-oPYdlnMKX_sG7qB-eFhmLh9vHE41n4&callback=initMap">
-    </script>
+    
   </body>
 </html>
