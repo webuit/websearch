@@ -8,13 +8,34 @@ use Validator;
 use App\category;
 use App\post;
 use App\comment;
+use App\postPicture;
+use DB;
+use Route;
 
 class PostController extends Controller
 {
     // Show bài post
-    public function getShowPost()
+    public function getShowPost($idPost=null)
     {
-        return view('showpost.post');
+        // Hiển thị bài post mới nhất nếu ko truyền idPost
+        if($idPost == null)
+        {   // $postId = id post mới nhất
+            $postId = post::orderBy('created_at', 'desc')->first()->id;
+        }
+        else    //Có truyền tham số $idPost
+        {
+            $postId = $idPost;
+        }
+        // $curentPost = post dựa theo đường dẫn
+        $curentPost = post::find($postId);
+        // $newRefPost các bài viết mới liên quan
+        $newRefPost = post::where('id', '!=', $postId)->orderBy('created_at', 'desc')->take(5)->get();
+        // Các hình ảnh cho bài viết trên bảng picture post
+        $picturePost = postPicture::where('post_id', $postId)->get();
+        // Đổ dữ liệu comment ra
+        $comment = comment::where('post_id', $postId)->orderBy('created_at','desc')->get();
+
+        return view('showpost.post', ['postId'=>$postId,'curentPost'=>$curentPost, 'newRefPost'=>$newRefPost, 'picturePost'=>$picturePost, 'comment'=>$comment]);
     }
     // Thêm bài post
     public function getAddPost()
@@ -62,26 +83,28 @@ class PostController extends Controller
     	$post = new Post();
 
     	// Xử lý upload hình ảnh lên
+        // n_picture hình chính trên bảng post
+        // n_ref_picture_1 các hình liên quan trên bảng post_picture
+        // Thêm hình chính trên bảng post
     	if($request->hasFile('n_picture'))
     	{
     		$picture = $request->File('n_picture');
     		$namePicture = $picture->getClientOriginalName();
     		// random tên hình để ko trùng
     		$namePicture = str_random(4)."_".$namePicture;
-    		while(file_exists("upload/picture/".$namePicture))
+    		while(file_exists("upload/picture/post".$namePicture))
     		{
     			$namePicture = str_random(4)."_".$namePicture;
     		}
     		// lưu hình upload
-    		$picture->move('upload/picture', $namePicture);
+    		$picture->move('upload/picture/post', $namePicture);
     		$post->photo = $namePicture;
        	}
     	else
     	{
     		$post->photo = "";
     	}
-    	
-    	// Lưu database
+    	// Lưu database trên bảng post
     	$post->category_id = $idCategory;
     	$post->user_id = $idUser;
     	$post->title = $title;
@@ -93,6 +116,100 @@ class PostController extends Controller
     	$post->close_time = $closeTime;
     	$post->save();
 
+        // Thêm các hình liên quan 
+        // Lấy id post vừa tạo
+        $idNewestPost = post::orderBy('id', 'desc')->first()->id;
+        // Hình liên quan 1
+        $postPicture1 = new postPicture;
+        $postPicture1->post_id = $idNewestPost;
+        if($request->n_ref_picture_1 != null)
+        {
+            $pictureRef1 = $request->File('n_ref_picture_1');
+            $namePictureRef1 = $pictureRef1->getClientOriginalName();
+            // random tên hình để ko trùng
+            $namePictureRef1 = str_random(4)."_".$namePictureRef1;
+            while(file_exists("upload/picture/post".$namePictureRef1))
+            {
+                $namePictureRef1 = str_random(4)."_".$namePictureRef1;
+            }
+            // lưu hình upload
+            $pictureRef1->move('upload/picture/post', $namePictureRef1);
+            $postPicture1->reference_piture = $namePictureRef1;
+        }
+        else
+        {
+            $postPicture1->reference_piture = "";
+        }
+        $postPicture1->save();
+
+        // Hình liên quan 2
+        $postPicture2 = new postPicture;
+        $postPicture2->post_id = $idNewestPost;
+        if($request->n_ref_picture_2 != null)
+        {
+            $pictureRef2 = $request->File('n_ref_picture_2');
+            $namePictureRef2 = $pictureRef2->getClientOriginalName();
+            // random tên hình để ko trùng
+            $namePictureRef2 = str_random(4)."_".$namePictureRef2;
+            while(file_exists("upload/picture/post".$namePictureRef2))
+            {
+                $namePictureRef2 = str_random(4)."_".$namePictureRef2;
+            }
+            // lưu hình upload
+            $pictureRef2->move('upload/picture/post', $namePictureRef2);
+            $postPicture2->reference_piture = $namePictureRef2;
+        }
+        else
+        {
+            $postPicture2->reference_piture = "";
+        }
+        $postPicture2->save();
+
+        // Hình liên quan 3
+        $postPicture3 = new postPicture;
+        $postPicture3->post_id = $idNewestPost;
+        if($request->n_ref_picture_3 != null)
+        {
+            $pictureRef3 = $request->File('n_ref_picture_3');
+            $namePictureRef3 = $pictureRef3->getClientOriginalName();
+            // random tên hình để ko trùng
+            $namePictureRef3 = str_random(4)."_".$namePictureRef3;
+            while(file_exists("upload/picture/post".$namePictureRef3))
+            {
+                $namePictureRef3 = str_random(4)."_".$namePictureRef3;
+            }
+            // lưu hình upload
+            $pictureRef3->move('upload/picture/post', $namePictureRef3);
+            $postPicture3->reference_piture = $namePictureRef3;
+        }
+        else
+        {
+            $postPicture3->reference_piture = "";
+        }
+        $postPicture3->save();
+
+        // Hình liên quan 4
+        $postPicture4 = new postPicture;
+        $postPicture4->post_id = $idNewestPost;
+        if($request->n_ref_picture_4 != null)
+        {
+            $pictureRef4 = $request->File('n_ref_picture_4');
+            $namePictureRef4 = $pictureRef4->getClientOriginalName();
+            // random tên hình để ko trùng
+            $namePictureRef4 = str_random(4)."_".$namePictureRef4;
+            while(file_exists("upload/picture/post".$namePictureRef4))
+            {
+                $namePictureRef4 = str_random(4)."_".$namePictureRef4;
+            }
+            // lưu hình upload
+            $pictureRef4->move('upload/picture/post', $namePictureRef4);
+            $postPicture4->reference_piture = $namePictureRef4;
+        }
+        else
+        {
+            $postPicture4->reference_piture = "";
+        }
+        $postPicture4->save();
     	return redirect('add_post')->with('notice_success', 'Bạn đã đăng bài thành công');
     }
 
@@ -116,6 +233,8 @@ class PostController extends Controller
     {
         // id post
         $idPost = $request->idPost;
+        // Tiêu đề comment
+        $titleComment = $request->titleComment;
         // Nội dung comment
         $contentComment = $request->comment;
         // id nguời post bài
@@ -124,6 +243,7 @@ class PostController extends Controller
         $comment = new comment;
         $comment->user_id = $idUser;
         $comment->post_id = $idPost;
+        $comment->title = $titleComment;
         $comment->content = $contentComment;
         $comment->save();
 

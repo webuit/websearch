@@ -30,7 +30,7 @@ Route::get('logout', 'AuthenController@getLogout');
 Route::get('add_post', 'PostController@getAddPost')->middleware('user_login');
 // ----------------------------End Post bài----------------------------
 //Show bài post
-Route::get('showpost', 'PostController@getShowPost');
+Route::get('showpost/{idPost?}', 'PostController@getShowPost')->name('show_post');
 // Xử lý thêm post bài
 Route::post('process_add_post', 'PostController@post_process_add_post');
 // Danh sách bài post
@@ -44,9 +44,10 @@ Route::get('ajax_comment', 'PostController@getAjaxComment')->name('ajax_comment'
 // ---------------End comment post-----------------------------
 
 // test
-Route::get('aj_asd/1', function(){
-	return view('post.test');
+Route::get('aj_asdasdas', function(){
+	$picturePost = App\postPicture::where('post_id', 11)->get();
+	dd($picturePost);
+
 });
 
-// Route::post('ajax_comment', 'PostController@getAjaxComment')->name('ajax_comment');
 // ----------------------------End Post bài----------------------------

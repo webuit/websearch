@@ -15,7 +15,7 @@ class CreatePostPictureTable extends Migration
     {
         Schema::create('post_picture', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('post_id')->unsigned();
+            $table->integer('post_id')->unsigned()->index('FK_Post');;
             $table->string('reference_piture')->nullable();
             $table->timestamps();
         });

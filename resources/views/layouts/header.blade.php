@@ -13,7 +13,7 @@
     <link href="{{asset('css/rolltop.css')}}" rel="stylesheet">
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
     <link href="{{asset('css/simple-sidebar.css')}}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.css')}}">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">

@@ -75,38 +75,39 @@
 		<div class="panel-group shadowpanel">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3>Nhà Hàng Hanuri</h3>
+					<h3>{{$curentPost->title}}</h3>
 				</div>
 				<div class="panel-body">
 					<div class="row" style="height: 100%">
 						<div class="col-md-4">
 							<div class="photo">
-								<img src="{{url('images/sp.jpg')}}" width="270px" height="250px" alt="">
+								<img src="{{asset('upload/picture/post').'/'.$curentPost->photo}}" width="270px" height="250px" alt="">
 							</div>
 						</div>
-
+						
+						{{-- Thể loại --}}
 						<div class="col-md-8">
 							<div class="breadcrumb">
-							  <a class="breadcrumb-item" href="#">TP.HCM</a><i> >> </i>
-							  <a class="breadcrumb-item" href="#">Quận 1</a><i> >> </i>
-							  <a class="breadcrumb-item" href="#">Bến Nghé</a>
+							  <a class="breadcrumb-item" href="#">Thể loại: {{$curentPost->category->name}}</a>
+							  {{-- <a class="breadcrumb-item" href="#">Quận 1</a><i> >> </i>
+							  <a class="breadcrumb-item" href="#">Bến Nghé</a> --}}
 							</div>
 
 							<div class="main-info-title">
-								<h1>Nhà Hàng Hanuri</h1>
+								<h1>{{$curentPost->title}}</h1>
 							</div>
 
 							<hr>
 							<div class="address">
 								<span class="fa fa-location-arrow locationicon"></span>
 								<span>
-									<a href=""><span>306 Nguyễn Tri Phương, P. 4, Quận 10 , TP.HCM</span></a>
+									<a href=""><span>{{$curentPost->address}}</span></a>
 								</span>
 							</div>
 
 							<div class="time-line">
 								<span class="fa fa-clock-o houricon"></span>
-								<span title=" | 09:00 AM - 10:00 PM">09:00 AM - 10:00 PM</span>
+								<span title=" | 09:00 AM - 10:00 PM">{{$curentPost->open_time}} - {{$curentPost->close_time}}</span>
 							</div>
 
 							<div class="price">
@@ -135,7 +136,7 @@
 						<div class="col-md-3 micro-item">
 							<div class="micro-title">
 								
-								<a href=""><i class="fa fa-comment"></i> Bình luận</a>
+								<a id="id_comment_button"><i class="fa fa-comment"></i> Bình luận</a>
 							</div>
 						</div>
 
@@ -155,13 +156,17 @@
 				</div>
 			</div> 
 		</div>
-
-		<!-- End panel -->
-		<!-- Phần Bình luận -->
-		<div class="row" style="margin:0;">
-			<div class="col-md-12" style="background: #fff;">
-			<div style="padding-top: 2em">
-				<textarea id="" name="n_comment" class="form-control " placeholder="Bình luận cho bài viết"></textarea>
+	
+	{{-- Thanh bình luận và nút --}}
+	<div class="row" style="margin:0;">
+		<div class="col-md-12" style="background: #fff;">
+		{{-- p: trả về thành công khi đăng bài --}}
+		<strong class="text-danger" id="id_comment_success">&nbsp;</strong>
+			<div style="margin-top: 1em">
+				<input type="text" id="id_title_comment" name="n_title_comment" class="form-control" placeholder="Nhập tiêu đề, ví dụ: Món ăn ở đây thật tuyệt vời">
+			</div>
+			<div style="">
+				<textarea id="demo" name="n_comment" class="form-control " placeholder="Nhập nội dung bình luận"></textarea>
 			</div>
 			<div>
 				@if(Auth::check())
@@ -169,49 +174,55 @@
 				@php
 				$user = App\User::find(Auth::user()->id);
 				@endphp
-				<input type="hidden" id="id_idPost" name="">
-				<button type="button" class="btn btn-primary cl_sm" id="" name="">Đăng</button>
+				<input type="hidden" id="id_idPost" name="{{$postId}}">
+				<button type="button" class="btn btn-primary cl_sm" id="" name="{{route('ajax_comment')}}">Đăng</button>
 				@else
 				<button type="button" disabled class="btn btn-primary">Đăng nhập để bình luận</button>
 				@endif
 			</div>
+		</div>
+	</div>
+		<!-- End panel -->
+		<!-- Phần Bình luận -->
+		{{-- Begin Ajax comment --}}
+		<div id="ajaxComment">
+		@foreach($comment as $valueComment)
+		<div class="row" style="margin:0;">
+			<div class="col-md-12" style="background: #fff;">
 			<hr>
 				<div class="comment" style="width: 100%;height: 70px;">
-					<div class="comment-head" style="float: left;">
-						<a href=""><img width="60px" height="60px" src="https://s12.postimg.org/46yha3jfh/item_6_180x200.png" class="img-responsive img-circle"></a>
+					<div class="comment-head" style="float: left; ">
+						<a href=""><img  width="60px" height="60px" src="{{asset('upload/picture/profile/').'/'.$valueComment->user->profile->avatar}}" class="img-responsive img-circle"></a>
 					</div>
 					<div class="comment-title" style="float: left;font-size: 15px;font-weight: 600;">
-						<a href="">Việt Tiến</a>
+						<a href="">{{$valueComment->user->name}}</a>
 					</div>
 					<br>
 					<div class="comment-time" style="display: inline-block;margin-left: -50px;">
-						<i class="fa fa-clock-o houricon"></i><a href=""> 14/6/2017 20:07</a>
+						<i class="fa fa-clock-o houricon"></i><a href=""> {{$valueComment->created_at}}</a>
 					</div>
 				</div>
 				<hr>
 				<div class="title" style="font-size:14px;font-weight: 700;margin-left:50px;">
-					<a href="">Nhà Hàng Hanuri</a>
+					<p><strong>{{$valueComment->title}}</strong></p>
 				</div>
 
-				<div class="content" style="text-align: justify;padding: 30px 50px 50px 50px;">
+				<div class="content" style="text-align: justify;padding: 0px 50px 50px 50px;">
 					<span>
-						Mới đầu ở tầng trệt nhìn cứ tưởng khách sạn hay cái quán karaoke nào không á :)) Tầng phục vụ khách thì trên lầu, phòng có máy lạnh.
-Ngay cửa phòng có 1 chú chó, nhưng nó hiền lắm nên bạn nào sợ chó thì có thể tạm yên tâm mà bước vào hen :))
-Nhóm mình gọi ăn thử 3 loại mì cay: bò, hải sản và hào phô mai. Sợi mì dai, nước dùng ngon, cấp 2 cũng không cay lắm.
-<p>- Mì cay bò 49k, chọn cay cấp độ 2, bò nhiều, có thêm xúc xích và cá viên nữa.</p>
-<p>- Mì cay hải sản cũng 49k luôn, chủ yếu là mực, tôm và cá viên.</p>
-<p>- Mì cay hào phô mai mắc hơn chút xíu, 59k. Hào nhỏ nhưng cũng nhiều, có thêm cá viên nữa, bên trên có phô mai nhưng ít lắm.</p>
-<p>- Takoyaki thì không ngon, 30k được 6 viên.</p>
-Nhân viên phục vụ ok. Nhà vệ sinh thì hơi hôi mùi chó, nên bạn nào có bị dị ứng chó mèo nhớ lưu ý nha.
+						{{$valueComment->content}}
 					</span>
 				</div>
 
 			</div>		
 		</div>
 		<hr>
+		@endforeach
+		</div>
+		{{-- End Ajax comment --}}
 		<!-- End Bình Luận -->
 		<!-- Phần để viết Bình luận -->
-				THÊM PHẦN ĐỂ VIẾT BÌNH LUẬN VÀO ĐÂY
+				{{-- THÊM PHẦN ĐỂ VIẾT BÌNH LUẬN VÀO ĐÂY --}}
+
 		<!-- End phần viết bình luận -->
 	</div>
 	<div class="col-md-3">
@@ -221,26 +232,19 @@ Nhân viên phục vụ ok. Nhà vệ sinh thì hơi hôi mùi chó, nên b
 					<h4>Bài Viết Mới</h4>
 			</div>
 			<div class="panel-body">
+				@foreach($newRefPost as $valueNewRefPost)
 				<div class="col-md-12">
 					<div class="col-md-3 image-post">
-						<img width="60px" height="60px" src="https://media.foody.vn/res/g32/311135/s180x180/foody-mi-cay-omega-lac-long-quan-694-636330675884556469.jpg" class="img-responsive img-thumbnail">
+						<img width="60px" height="60px" src="{{asset('upload/picture/post/').'/'.$valueNewRefPost->photo}}" class="img-responsive img-thumbnail">
 					</div>
 					<div class="col-md-9 post-content">
-						<a href="">Quán Ăn Hàn Quốc Hanuri</a>
+						<a href="{{route('show_post')}}/{{$valueNewRefPost->id}}">{{$valueNewRefPost->title}}</a>
 						<hr>
 					</div>
 				</div>
 				<div class="clear-fix"></div>
 				<hr>
-				<div class="col-md-12" >
-					<div class="col-md-3 image-post">
-						<img width="60px" height="60px" src="https://media.foody.vn/res/g5/42857/prof/s480x300/foody-mobile-a1-jpg-219-635760098350582221.jpg" class="img-responsive img-thumbnail">
-					</div>
-					<div class="col-md-9 post-content">
-						<a href="">Mì cay Naga Làng Đại Học</a>
-						<hr>
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div> 
 		</div>
@@ -258,7 +262,7 @@ Nhân viên phục vụ ok. Nhà vệ sinh thì hơi hôi mùi chó, nên b
         </div>
         <div class="modal-body">
           <i class="fa fa-phone"></i>
-          <span style="font-size: 16px;">0974755854</span>
+          <span style="font-size: 16px;">{{$curentPost->phone}}</span>
         </div>
       </div>
     </div>
@@ -286,7 +290,47 @@ itemToClone.children(':first-child').clone()
 });
 
 </script>
+{{-- Ajax comment --}}
+<script>
+	$(document).ready(function(){
+		$(".cl_sm").click(function(){
+			// url = đường dẫn ajax
+			var url = $(this).attr('name');
+			// Lấy tiêu đề comment
+			var titleComment = $('#id_title_comment').val();
+			// Lấy nội dung comment
+			var comment = $('#demo').val();
+			// Lấy id post
+			var idPost = $("#id_idPost").attr('name');
+			if($.trim(titleComment).length == 0)
+			{
+				$("#id_comment_success").empty().append('Bạn chưa nhập tiêu đề.');
+			}
+			else if($.trim(comment).length == 0)
+			{
+				$("#id_comment_success").empty().append('Bạn chưa nhập nội dung bình luận');
+			}
+			else
+			{
+				$.get(url, {titleComment:titleComment, comment:comment, idPost:idPost} , function(data){
+				$("#ajaxComment").html(data);
+				});
+				$("#id_comment_success").empty().append('Đăng thành công');
+				// clear input
+				$('#id_title_comment').val('');
+				$('#demo').val('');
+			}
+		});
+	});
+</script>
+{{-- Nhấn nút bình luận thì focus xuống thanh bình luận--}}
+<script>
+	$(document).ready(function(){
+		$("#id_comment_button").click(function(){
+			$("#id_title_comment").focus();	
+		});
+	});
+</script>
 @include('layouts.footer')
-	
 	
 </body

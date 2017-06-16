@@ -20,6 +20,6 @@ class post extends Model
 
     public function postPicture()
     {
-    	return $this->hasMany('App\postPicture', 'post_id', 'id');
+    	return $this->hasMany('App\postPicture', 'id', 'post_id');
     }
 }

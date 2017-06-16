@@ -15,7 +15,7 @@ class AddFkToPostPicture extends Migration
     {
         Schema::table('post_picture', function(Blueprint $table)
         {
-            $table->foreign('post_id')->references('id')->on('post')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('post_id', 'FK_Post')->references('id')->on('post')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 
