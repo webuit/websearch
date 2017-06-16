@@ -53,8 +53,8 @@
 								<div class="col-md-4" style="border-left: 1px solid #555">
 									<div class="footer-help-right">
 										<div class="footer-help-right-title" style="font-size: 18px;">
-											Hãy Kết Nối Với Eduu 
-											<br>Whenever, Wherever.
+											Hãy Kết Nối Với ITFood 
+											<br>Mọi lúc , Mọi Nơi
 										</div>
 										<br>
 										<div class="footer-help-right-app">
