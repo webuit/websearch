@@ -116,6 +116,7 @@ glyphicon glyphicon-"></span>
 </script>
 
 <script type="text/javascript"> 
+
   var geocoder = new google.maps.Geocoder();
 
   if (navigator.geolocation) {
