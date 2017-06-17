@@ -25,9 +25,11 @@ Route::post('process_login', 'AuthenController@postProcessLogin');
 // Đăng xuất
 Route::get('logout', 'AuthenController@getLogout');
 // Thông tin account user
-Route::get('info_user/{userId?}', 'AuthenController@getInfoUser');
-// Xử lý thay đổi profile
+Route::get('info_user/{userId?}', 'AuthenController@getInfoUser')->middleware('user_login');;
+// Xử lý thay đổi profile (-avatar)
 Route::get('ajax_profile', 'AuthenController@getAjaxProfile')->name('ajax_profile');
+// thay đổi avatar
+Route::post('ajax_change_avatar', 'AuthenController@postAjaxChangeAvatar')->name('ajax_change_avatar');
 // -----------------End Login- Register-------------------------
 // -------------------Begin Post bài----------------------------
 // Thêm bài post
@@ -39,6 +41,10 @@ Route::get('showpost/{idPost?}', 'PostController@getShowPost')->name('show_post'
 Route::post('process_add_post', 'PostController@post_process_add_post');
 // Danh sách bài post
 Route::get('list_post', 'PostController@getListPost');
+// Thêm thể loại category
+Route::get('add_category', 'PostController@getAddCategory')->name('add_category')->middleware('user_login');;
+// Xử lý thêm thể loại
+Route::post('proccess_add_category', 'PostController@postProcessAddCategory')->name('proccess_add_category');
 // ----------------End Post bài----------------------------
 // ----------------Begin comment post--------------------
 // thông tin bài post và comment
@@ -48,18 +54,8 @@ Route::get('ajax_comment', 'PostController@getAjaxComment')->name('ajax_comment'
 // ---------------End comment post-----------------------------
 
 // test
-Route::get('aj_asdasdas', function(){
-	// $date = App\Profile::find(4)->date_of_birth;
-	// $profile = new App\Profile;
-	// $profile->user_id =5;
-	// $profile->date_of_birth = "2012-6-17";
-	// $profile->save();
-	$date = "17-6-2012";
-	$date = App\Carbon::parse($date->dateini);
-	$date = App\Carbon::parse($date->datefim);
-	$date = $date->format('Y/m/d');
-
-
+Route::get('aj_asdasdas', function(){	
+	return view('post.error_category');
 });
 
 // ----------------------------End Post bài----------------------------

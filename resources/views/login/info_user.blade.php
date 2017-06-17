@@ -131,7 +131,7 @@
 		</div>
 		<div class="col-sm-8">
 			<img width="50em" height="60em" src="{{asset('upload/picture/profile/').'/'.$user->Profile->avatar}}" alt="">
-			<a name="avatar" class="xd"><i  class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+			<a id='id_avatar' name="avatar" ><i  class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
 		</div>
 	</div>
  </div>
@@ -159,6 +159,32 @@
   </div>
   {{-- End modal --}}
 
+	<!-- Modal cho avatar -->
+  <div class="modal fade" id="avatarModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thay đổi ảnh đại diện</h4>
+        </div>
+        <form action="" id="id_form_avatar" method="POST" enctype="multipart/form-data">
+        {{csrf_field()}}
+        	<div class="modal-body">
+        		<input type="file" name="n_avatar">
+        	</div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" id="id_avatar_ok" class="btn btn-success" data-dismiss="modal" name="{{route('ajax_change_avatar')}}">Thay đổi</button>
+        </div>
+      </div>
+      </form>
+      
+    </div>
+  </div>
+  {{-- End modal --}}
 
 <script>
   $(document).ready(function(){
@@ -184,7 +210,7 @@ itemToClone.children(':first-child').clone()
 
 </script>
 
-{{-- Modal --}}
+{{-- Modal: thay đổi profile (-avatar) --}}
 <script>
 	$(document).ready(function(){
 		$('a.xd').click(function(){
@@ -199,6 +225,35 @@ itemToClone.children(':first-child').clone()
 				location.reload();
 			})
 			});	
+		});
+	});
+</script>
+
+{{-- Modal thay đổi avatar --}}
+<script>
+	$(document).ready(function(){
+		$("#id_avatar").click(function(){
+			$('#avatarModal').modal('show');
+			$('#id_avatar_ok').click(function(){
+				$.ajaxSetup({
+					headers: {
+						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					}
+				});
+				var url = $(this).attr('name');
+				$.ajax({
+					url: url,
+					type: "POST",
+					data : new FormData($('#id_form_avatar')[0]),
+					processData: false,
+					contentType: false,
+					success: function(data){
+						location.reload();
+						// $("#idPopupEditPI .close").click();
+						// $("#lolPI").html(data);
+					}
+				});
+			});				
 		});
 	});
 </script>
