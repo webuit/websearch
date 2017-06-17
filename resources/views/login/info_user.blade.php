@@ -82,7 +82,7 @@
 			<h2>Tên:</h2>
 		</div>
 		<div class="col-sm-8">
-			<h2>{{$user->name}}</h2>
+			<h2>{{$user->name}} <a name="name" class="xd"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></h2>
 		</div>
 	</div>
 	<div class="row">
@@ -90,7 +90,7 @@
 			<h2>Email:</h2>
 		</div>
 		<div class="col-sm-8">
-			<h2>{{$user->email}}</h2>
+			<h2>{{$user->email}}  <a name="email" class="xd"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></h2>
 		</div>
 	</div>
 	<div class="row">
@@ -98,7 +98,7 @@
 			<h2>Ngày sinh:</h2>
 		</div>
 		<div class="col-sm-8">
-			<h2>{{ Carbon\Carbon::parse($user->Profile->date_of_birth)->format('d-m-Y') }}</h2>
+			<h2>{{ Carbon\Carbon::parse($user->Profile->date_of_birth)->format('d-m-Y') }}  <a name="date_of_birth" class="xd"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></h2>
 		</div>
 	</div>
 	<div class="row">
@@ -106,7 +106,7 @@
 			<h2>Địa chỉ:</h2>
 		</div>
 		<div class="col-sm-8">
-			<h2>{{$user->Profile->address}}</h2>
+			<h2>{{$user->Profile->address}}  <a name="address" class="xd"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></h2>
 		</div>
 	</div>
 	<div class="row">
@@ -114,7 +114,15 @@
 			<h2>Số điện thoại:</h2>
 		</div>
 		<div class="col-sm-8">
-			<h2>{{$user->Profile->phone}}</h2>
+			<h2>{{$user->Profile->phone}}  <a name="phone" class="xd"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 ">
+			<h2>Facebook:</h2>
+		</div>
+		<div class="col-sm-8">
+			<h2>{{$user->Profile->facebook}}  <a name="facebook" class="xd"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></h2>
 		</div>
 	</div>
 	<div class="row">
@@ -123,9 +131,33 @@
 		</div>
 		<div class="col-sm-8">
 			<img width="50em" height="60em" src="{{asset('upload/picture/profile/').'/'.$user->Profile->avatar}}" alt="">
+			<a name="avatar" class="xd"><i  class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
 		</div>
 	</div>
  </div>
+
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thay đổi thông tin</h4>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="id_info"  class="form-control" placeholder="Nhập thông tin cần thay đổi">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" id="id_ok" class="btn btn-success" data-dismiss="modal" name="{{route('ajax_profile')}}">Thay đổi</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  {{-- End modal --}}
 
 
 <script>
@@ -150,6 +182,25 @@ itemToClone.children(':first-child').clone()
 });
 });
 
+</script>
+
+{{-- Modal --}}
+<script>
+	$(document).ready(function(){
+		$('a.xd').click(function(){
+			// info_click: Lấy thông tin thuộc tính cần sửa , vs: name, adress,...
+			var atribute_click = $(this).attr('name');
+			$('#myModal').modal('show');
+			$('#id_ok').click(function(){
+				// thông tin nhập để thay đổi
+				var info_change = $('#id_info').val();
+				var route_ajax = $(this).attr('name');
+				$.get(route_ajax,  {atribute_click:atribute_click, info_change:info_change},function(data){
+				location.reload();
+			})
+			});	
+		});
+	});
 </script>
 
 @include('layouts.footer')

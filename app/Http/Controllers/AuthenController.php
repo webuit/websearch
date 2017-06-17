@@ -129,4 +129,31 @@ class AuthenController extends Controller
         $user = User::find($userId);
         return view('login.info_user', ['user'=>$user]);
     }
+    // Xử lý thay đổi profile
+    public function getAjaxProfile(Request $request)
+    {
+        $idUser = Auth::user()->id;
+        $attribute = $request->atribute_click;
+        $info_change = $request->info_change;
+        // thay đổi name hoặc email -> bên bảng users
+        if($attribute=="name" || $attribute=="email")
+        {
+            $user = User::find($idUser);
+            $user->$attribute = $info_change;
+            $user->save();
+        }
+        else  //Thay đổi bên bảng profile
+        {
+            $idProfile = User::find($idUser)->profile->id;
+            $profile = Profile::find($idProfile);
+            if($attribute == 'date_of_birth')
+            {
+               $info_change = \Carbon\Carbon::parse($request->dateini);
+               $info_change = \Carbon\Carbon::parse($request->datefim);
+               $info_change = $info_change->format('Y/m/d');
+            }
+            $profile->$attribute = $info_change;
+            $profile->save();
+        }
+    }
 }

@@ -26,6 +26,8 @@ Route::post('process_login', 'AuthenController@postProcessLogin');
 Route::get('logout', 'AuthenController@getLogout');
 // Thông tin account user
 Route::get('info_user/{userId?}', 'AuthenController@getInfoUser');
+// Xử lý thay đổi profile
+Route::get('ajax_profile', 'AuthenController@getAjaxProfile')->name('ajax_profile');
 // -----------------End Login- Register-------------------------
 // -------------------Begin Post bài----------------------------
 // Thêm bài post
@@ -47,8 +49,16 @@ Route::get('ajax_comment', 'PostController@getAjaxComment')->name('ajax_comment'
 
 // test
 Route::get('aj_asdasdas', function(){
-	$picturePost = App\postPicture::where('post_id', 11)->get();
-	dd($picturePost);
+	// $date = App\Profile::find(4)->date_of_birth;
+	// $profile = new App\Profile;
+	// $profile->user_id =5;
+	// $profile->date_of_birth = "2012-6-17";
+	// $profile->save();
+	$date = "17-6-2012";
+	$date = App\Carbon::parse($date->dateini);
+	$date = App\Carbon::parse($date->datefim);
+	$date = $date->format('Y/m/d');
+
 
 });
 
