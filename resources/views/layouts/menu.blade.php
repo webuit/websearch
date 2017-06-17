@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" style="font-family: 'Monoton', cursive;font-size: 30px;" href="#">ITFood</a>
+      <a class="navbar-brand" style="font-family: 'Monoton', cursive;font-size: 30px;" href="{{url('index')}}">ITFood</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
