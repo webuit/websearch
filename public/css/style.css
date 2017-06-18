@@ -162,10 +162,11 @@ body {
 
 .size-product{
     height: 300px;
+    margin-bottom: 30px;
 }
 
 .size-product .product-item{
-    height: 280px;
+    height: 300px;
 }
 .product-item h3 {
     font-size: 14px;

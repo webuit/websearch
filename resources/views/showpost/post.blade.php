@@ -68,6 +68,34 @@
 	.clear-fix{
 		clear: both;
 	}
+
+	.panel-default>.panel-heading{
+		background: #317E8C;
+		color: #fff;
+	}
+	.btn{
+		margin-bottom: 10px;
+	}
+
+	.comment-time{
+		display: inline-block;
+		margin-left: -100px;
+	}
+
+	@media all and (max-width: 600px)
+      {
+    	#slide-image img{
+    		width: 100%;
+    		height: 150px;
+    		margin-top: 20px;
+    		border-radius: 5px;
+    	}    
+		
+		.comment-time{
+		display: inline-block;
+		margin-left: 10px;
+	}
+      }
 </style>
 <body>
 <div class="row" style="padding: 15px;">
@@ -147,6 +175,7 @@
 							</div>
 						</div>
 					</div>
+					  <h4>Hình Ảnh</h4>
 					<hr>
 					<!-- End Body -->
 					<!-- Phần slider -->
@@ -162,10 +191,12 @@
 		<div class="col-md-12" style="background: #fff;">
 		{{-- p: trả về thành công khi đăng bài --}}
 		<strong class="text-danger" id="id_comment_success">&nbsp;</strong>
-			<div style="margin-top: 1em">
+
+			<div><h4>Viết bình luận</h4></div>
+			<div style="margin-top: 1em;margin-bottom: 1em;">
 				<input type="text" id="id_title_comment" name="n_title_comment" class="form-control" placeholder="Nhập tiêu đề, ví dụ: Món ăn ở đây thật tuyệt vời">
 			</div>
-			<div style="">
+			<div style="margin-bottom: 1em">
 				<textarea id="demo" name="n_comment" class="form-control " placeholder="Nhập nội dung bình luận"></textarea>
 			</div>
 			<div>
@@ -194,7 +225,7 @@
 					<div class="comment-head" style="float: left; ">
 						<a href=""><img  width="60px" height="60px" src="{{asset('upload/picture/profile/').'/'.$valueComment->user->profile->avatar}}" class="img-responsive img-circle"></a>
 					</div>
-					<div class="comment-title" style="float: left;font-size: 15px;font-weight: 600;">
+					<div class="comment-title" style="float: left;font-size: 15px;font-weight: 600;margin-left: 15px;">
 						<a href="">{{$valueComment->user->name}}</a>
 					</div>
 					<br>

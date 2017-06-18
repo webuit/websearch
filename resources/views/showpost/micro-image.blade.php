@@ -3,7 +3,7 @@
     <div class="carousel-inner">
     @foreach($picturePost as $key => $valuePicturePost)
       <div class="item{{ $key == 0 ? ' active' : '' }}">
-        <div class="col-xs-12 col-sm-6 col-md-2">
+        <div id="slide-image" class="col-xs-12 col-sm-6 col-md-2">
           <a href="#"><img src="{{asset('upload/picture/post/').'/'.$valuePicturePost->reference_piture}}" class=" center-block" width="125px" height="125px"></a>
           {{-- <h4 class="text-center">{{$valuePicturePost->id}}</h4> --}}
           {{-- <h5 class="text-center">4000 RSD</h5> --}}
