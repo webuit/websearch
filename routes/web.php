@@ -53,3 +53,8 @@ Route::get('aj_asdasdas', function(){
 });
 
 // ----------------------------End Post bài----------------------------
+
+//Profile
+Route::get('profile',function(){
+	return view('profile.profile');
+});

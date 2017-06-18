@@ -200,17 +200,17 @@
 						        <div class="col-md-3 size-product">
 				            <div class="product-item">
 					              <div class="pi-img-wrapper">
-						                <img src="<?php echo $photo; ?>" class="img-responsive" width="250px" height="250px" alt="Cửa Hàng Bánh Ngọt" style="overflow: hidden;">
+						                <img src="<?php echo $photo; ?>" width="200px" height="150px" alt="Cửa Hàng Bánh Ngọt" style="overflow: hidden;">
 						                <div>
-						                  <a href="direct/{{$vitri}}/{{$end}}/{{$ogrigin}}/{{$value['name']}}" class="btn">Xem chi tiết</a>
+						                  <a href="direct/{{$vitri}}/{{$end}}/{{$ogrigin}}/{{$value['name']}}" class="btn">Chỉ đường</a>
 						                </div>
 					              </div>
 					              
 					              <div class="col-md-12" style="font-size: 14px;">
-					              	<div style="height: 30px;margin-top: 10px;"><a class="course-title" href="shop-item.html">Bánh hiện đại</a></div>
+					              	<!-- <div style="height: 30px;margin-top: 10px;"><a class="course-title" href="shop-item.html">Bánh hiện đại</a></div> -->
 					              	<div style="margin-top: 10px;"><i class="fa fa-graduation-cap" aria-hidden="true"></i> <a href="#"><?php echo $value['name']; ?></a></div>
 
-					              	<div style="margin-top: 5px;margin-bottom: 30px;"><i class="fa fa-lg fa-map-marker icon-color-coffee"></i> <a href="#"><?php echo $value['vicinity']; ?></a></div>
+					              	<div style="margin-top: 5px;margin-bottom: 30px;"><i class="fa fa-lg fa-map-marker icon-color-coffee"></i> <a href="direct/{{$vitri}}/{{$end}}/{{$ogrigin}}/{{$value['name']}}"><?php echo $value['vicinity']; ?></a></div>
 					              </div>
 					              <div class="sticker sticker-new"></div>
 
@@ -230,20 +230,21 @@
 			</div>
 			<div id="menu-left" class="col-md-3 no-padding sidebar-left">
 				<div class="menu-left-fix">
-					<p style="margin-top: 20px;font-size: 16px;font-weight: bold;padding-left: 25px;"> Bài viết mới nhất </p>
+					<div style="height: 60px;background: #317e8c;">
+						<p style="font-size: 16px;font-weight: bold;padding-left: 25px;color: #fff;padding-top: 20px;"> Bài viết mới nhất </p>
+					</div>
 
-					<hr>
 					@foreach($post as $valuePost)
 					<div class="row">
 						<div class="col-md-12">
 							<div class="col-md-5 col-xs-5" style="height: 150px;padding: 0 0 0 5px;">
 							<div class="info-image">
-								<img src="{{asset('upload/picture/post/').'/'.$valuePost->photo }}" alt="" height="150px" width="100%" style="border-radius: 5px;">
+								<img src="{{asset('upload/picture/post/').'/'.$valuePost->photo }}" alt="" height="100px" width="100%" style="border-radius: 5px;">
 							</div>
 							
 						</div>
 
-						<div class="col-md-7 col-xs-7" style="height: 160px;">
+						<div class="col-md-7 col-xs-7" style="height: 140px;">
 							<div class="info-title">
 								<a href="{{route('show_post')}}/{{$valuePost->id}}"><span>{{$valuePost->title}}</span></a>
 							</div>
@@ -267,6 +268,7 @@
 						</div>
 						</div>
 					</div>
+					<hr style="margin:10px 0 10px 0;">
 					@endforeach
 					
 					<!-- End Item 1 -->

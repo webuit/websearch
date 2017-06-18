@@ -82,6 +82,7 @@
       .label{
         font-size: 15px;
       }
+      
       @media print {
         #map {
           height: 500px;
