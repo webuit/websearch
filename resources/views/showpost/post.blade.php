@@ -231,6 +231,8 @@
 					<br>
 					<div class="comment-time">
 						<i class="fa fa-clock-o houricon"></i><a href=""> {{$valueComment->created_at}}</a>
+					<div class="comment-time" style="display: inline-block;margin-left: -50px;">
+						<i class="fa fa-clock-o houricon"></i><a href=""> {{$valueComment->created_at->format('d.m.Y H:i:s')}}</a>
 					</div>
 				</div>
 				<hr>

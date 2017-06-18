@@ -129,4 +129,51 @@ class AuthenController extends Controller
         $user = User::find($userId);
         return view('login.info_user', ['user'=>$user]);
     }
+    // Xử lý thay đổi profile
+    public function getAjaxProfile(Request $request)
+    {
+        $idUser = Auth::user()->id;
+        $attribute = $request->atribute_click;
+        $info_change = $request->info_change;
+        // thay đổi name hoặc email -> bên bảng users
+        if($attribute=="name" || $attribute=="email")
+        {
+            $user = User::find($idUser);
+            $user->$attribute = $info_change;
+            $user->save();
+        }
+        else  //Thay đổi bên bảng profile
+        {
+            $idProfile = User::find($idUser)->profile->id;
+            $profile = Profile::find($idProfile);
+            if($attribute == 'date_of_birth')
+            {
+                // Format lại date
+                $info_change = strtotime($info_change);
+                $info_change = date('Y-m-d',$info_change);
+            }
+            $profile->$attribute = $info_change;
+            $profile->save();
+        }
+    }
+
+    // Thay đổi avatar
+    public function postAjaxChangeAvatar(Request $request)
+    {
+        $avatar = $request->File('n_avatar');
+        $namePicture = $avatar->getClientOriginalName('n_avatar');
+        // random tên hình để ko trùng
+        $namePicture = str_random(4)."_".$namePicture;
+        while(file_exists("upload/picture/profile".$namePicture))
+        {
+            $namePicture = str_random(4)."_".$namePicture;
+        }
+        // lưu hình upload
+        $avatar->move('upload/picture/profile', $namePicture);
+        $idUser = Auth::user()->id;
+        $idProfile = User::find($idUser)->Profile->id;
+        $profile = Profile::find($idProfile);
+        $profile->avatar = $namePicture;
+        $profile->save();
+    }
 }

@@ -251,4 +251,30 @@ class PostController extends Controller
         $comment = comment::where('post_id', $idPost)->orderBy('created_at','desc')->get();
         return view('post.ajax_comment', ['comment'=>$comment]);
     }
+
+    // form Thêm thể loại
+    public function getAddCategory()
+    {
+        return view('post.add_category');
+    }
+    // Xử lý thêm thể loại
+    public function postProcessAddCategory(Request $request)
+    {
+        $this->validate($request,
+            [
+                'n_category' => 'required|min:3|max:50',
+            ],
+            [
+                'n_category.required' => "Bạn chưa nhập tên thể loại.",
+                'n_category.min' => "Độ dài tên thể loại tối thiểu phải 3 ký tự.",
+                'n_category.max' => "Độ dài tên thể loại tối đa là 50 ký tự.",
+            ]
+        );
+        $nameCategory = $request->n_category;
+        $category = new category;
+        $category->name = $nameCategory;
+        $category->save();
+
+        return redirect('add_category')->with('Success_Add_Cat', 'Thêm thể loại thành công');
+    }
 }
