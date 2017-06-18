@@ -39,12 +39,12 @@
                 <li><a href="{{url('logout')}}"><i class="fa fa-sign-out" aria-hidden="true"></i><span style="padding-left: 1.5em">Logout</span></a></li>
               </ul>
             </li>
-            <li style="margin-top: 10px;"><button class="btn btn-success"><a href="add_post" style="color:white">Đăng Bài</a></button></li>
+            <li style="margin-top: 10px;"><button class="btn btn-success"><a href="{{url('add_post')}}" style="color:white">Đăng Bài</a></button></li>
             @else
             {{-- End thông tin user --}}
             <li><a href="{{url('register_form')}}">Đăng Ký</a></li>
             <li><a href="{{url('login_form')}}">Đăng Nhập</a></li>
-            <li style="margin-top: 10px;"><button class="btn btn-success"><a href="add_post" style="color:white">Đăng Bài</a></button></li>
+            <li style="margin-top: 10px;"><button class="btn btn-success"><a href="{{url('add_post')}}" style="color:white">Đăng Bài</a></button></li>
             @endif
             @if(session('No_Category'))
               <p id="123"></p>
