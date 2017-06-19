@@ -248,7 +248,10 @@
 		</div>
 		<hr>
 		@endforeach
+		{{-- Phân trang bình luận --}}
+		<div>{!! $comment->links() !!}</div>
 		</div>
+		
 		{{-- End Ajax comment --}}
 		<!-- End Bình Luận -->
 		<!-- Phần để viết Bình luận -->

@@ -30,53 +30,44 @@
         </div>
         <div class="panel-body" style="font-size: 16px;">
           <div class="row">
-            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="images_profile/z580306926891_f009030c34d9e9bfeaa8242f0c06df0a.jpg " class="img-circle img-responsive"> </div>
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="{{asset('upload/picture/profile/').'/'.$user->Profile->avatar}} " class="img-circle img-responsive"> 
+              <a id='id_avatar' name="avatar" >Thay đổi ảnh đại diện <i  class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+            </div>
             
             <div class=" col-md-9 col-lg-9 "> 
               <table class="table table-user-information">
                 <tbody>
                   <tr>
                     <td>Tên Thành Viên</td>
-                    <td>Dũng</td>
+                    <td>{{$user->name}} <a name="name" class="xd"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                   </tr>
                   <tr>
                     <td>Ngày Sinh</td>
-                    <td>16-10-2001</td>
+                    <td>{{ Carbon\Carbon::parse($user->Profile->date_of_birth)->format('d-m-Y') }}  <a name="date_of_birth" class="xd"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                   </tr>
-                  
-               
-                     <tr>
-                         </tr><tr>
-                    <td> Giới Tính</td>
-                    <td>Nam</td>
-                  </tr>
-                    <tr>
-                    <td>Địa Chỉ</td>
-                    <td>282, Ấp TÂn Định ,xã Minh Tân,Huyện Dầu Tiếng,Tỉnh Bình DƯơng</td>
-                  </tr>
-
+                <tr>
+                  <td>Địa Chỉ</td>
+                  <td>{{$user->Profile->address}}  <a name="address" class="xd"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a</td>
+                </tr>
                   <tr>
-                    <td>Trường </td>
-                    <td>UIT</td>
+                    <td>Facebook </td>
+                    <td>{{$user->Profile->facebook}}  <a name="facebook" class="xd"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                   </tr>
 
                   <tr>
                     <td>Email</td>
-                    <td><a href="mailto:info@support.com">trandinhphu2606@gmail.com</a></td>
+                    <td><a href="mailto:info@support.com">{{$user->email}}  <a name="email" class="xd"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></a></td>
                   </tr>
 
                   <tr>
-                    <td>Phone Number</td>
-                    <td>0974755854<br>
+                    <td>Số điện thoại</td>
+                    <td>{{$user->Profile->phone}}  <a name="phone" class="xd"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><br>
                     </td>
-                  </tr>
-                  
-
-
-                 
+                  </tr>                 
+                
                 </tbody>
               </table>
-              <a href="edit_account.php"><button class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Chỉnh Sửa</button></a>
+              {{-- <a href="edit_account.php"><button class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Chỉnh Sửa</button></a> --}}
             </div>
           </div>
         </div>
@@ -99,17 +90,13 @@
 					<h4><i class="fa fa-bookmark" aria-hidden="true"></i> Bài viết mới nhất</h4>
 				</div>
 				<div class="panel-body">
-				<div class="newpost">
-										<img src="images/rss.png" width="25px"> <a href="baiviet.php?Huong-dan-hit-dat-dung-cach-cho-nu,-trong-3-tuan-la-thanh-“su-phu”&#10;&amp;id=26.html">Hướng dẫn hít đất đúng cách cho nữ, trong 3 tuần là thành “sư phụ”
-</a>
-										<hr>
-									</div><div class="newpost">
-										<img src="images/rss.png" width="25px"> <a href="baiviet.php?Tap-the-hinh-nu-de-co-Body-mong-muon&amp;id=20.html">Tập thể hình nữ để có Body mong muốn</a>
-										<hr>
-									</div><div class="newpost">
-										<img src="images/rss.png" width="25px"> <a href="baiviet.php?7-vi-tri-co-the-cua-nam-gioi-tap-the-hinh-cuon-hut-phai-dep&amp;id=8.html">7 vị trí cơ thể của nam giới tập thể hình cuốn hút phái đẹp</a>
-										<hr>
-									</div>					</div>
+        @foreach($post as $valuePost)
+          <div class="newpost">
+          <img src="{{asset('upload/picture/post/').'/'.$valuePost->photo}}" width="60px"> <a href="{{route('show_post')}}/{{$valuePost->id}}">{{$valuePost->title}}</a>
+            <hr>
+          </div>
+        @endforeach					
+        </div>
 				<div class="panel-heading">
 					<center>
 					  <img id="avatar" class="img-circle" width="150px" height="150px" src="images/profile2.jpg">
@@ -157,5 +144,106 @@
 
   </div>
 </div>
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thay đổi thông tin</h4>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="id_info"  class="form-control" placeholder="Nhập thông tin cần thay đổi">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" id="id_ok" class="btn btn-success" data-dismiss="modal" name="{{route('ajax_profile')}}">Thay đổi</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  {{-- End modal --}}
+
+  <!-- Modal cho avatar -->
+  <div class="modal fade" id="avatarModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thay đổi ảnh đại diện</h4>
+        </div>
+        <form action="" id="id_form_avatar" method="POST" enctype="multipart/form-data">
+        {{csrf_field()}}
+          <div class="modal-body">
+            <input type="file" name="n_avatar">
+          </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" id="id_avatar_ok" class="btn btn-success" data-dismiss="modal" name="{{route('ajax_change_avatar')}}">Thay đổi</button>
+        </div>
+      </div>
+      </form>
+      
+    </div>
+  </div>
+  {{-- End modal --}}
+
+
+{{-- Modal: thay đổi profile (-avatar) --}}
+<script>
+  $(document).ready(function(){
+    $('a.xd').click(function(){
+      // info_click: Lấy thông tin thuộc tính cần sửa , vs: name, adress,...
+      var atribute_click = $(this).attr('name');
+      $('#myModal').modal('show');
+      $('#id_ok').click(function(){
+        // thông tin nhập để thay đổi
+        var info_change = $('#id_info').val();
+        var route_ajax = $(this).attr('name');
+        $.get(route_ajax,  {atribute_click:atribute_click, info_change:info_change},function(data){
+        location.reload();
+      })
+      }); 
+    });
+  });
+</script>
+
+{{-- Modal thay đổi avatar --}}
+<script>
+  $(document).ready(function(){
+    $("#id_avatar").click(function(){
+      $('#avatarModal').modal('show');
+      $('#id_avatar_ok').click(function(){
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+        var url = $(this).attr('name');
+        $.ajax({
+          url: url,
+          type: "POST",
+          data : new FormData($('#id_form_avatar')[0]),
+          processData: false,
+          contentType: false,
+          success: function(data){
+            location.reload();
+            // $("#idPopupEditPI .close").click();
+            // $("#lolPI").html(data);
+          }
+        });
+      });       
+    });
+  });
+</script>
+
+
 </body>
 @include('layouts.footer')
