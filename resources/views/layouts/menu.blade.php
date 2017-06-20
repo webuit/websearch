@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-     {{--  <a class="navbar-brand" style="font-family: 'Monoton', cursive;font-size: 30px;" href="{{route('getPosition')}}">ITFood</a> --}}
+      <!-- <a class="navbar-brand" style="font-family: 'Monoton', cursive;font-size: 30px;" href="{{route('getPosition')}}">ITFood</a> -->
       <a class="navbar-brand" style="font-family: 'Monoton', cursive;font-size: 30px;" href="{{url('index')}}">ITFood</a>
     </div>
 

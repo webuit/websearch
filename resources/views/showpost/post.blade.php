@@ -259,7 +259,7 @@
 
 		<!-- End phần viết bình luận -->
 	</div>
-	<div class="col-md-3">
+	<!-- <div class="col-md-3">
 		<div class="panel-group shadowpanel">
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -282,7 +282,7 @@
 			</div>
 		</div> 
 		</div>
-	</div>
+	</div> -->
 
 	<!-- End bài viết mới -->
 </div>

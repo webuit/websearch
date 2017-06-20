@@ -161,24 +161,6 @@
 			
 			<div id="menu-right" class="col-md-9 sidebar-right" >
 				<div class="col-md-12 realdata">
-					<div class="col-md-6 mini-padding">
-						<div style="font-size:16px;padding-bottom:10px;" class="">
-		                    <a data-bind="attr: {href: '/khoa-hoc-' + NormalizedStringHyphen(Name)}" class="sub-link-index sub-title" href="/khoa-hoc-php">
-		                        Các Nhà Hàng <span data-bind="text: Name"></span>
-		                    </a>
-		                </div>
-					</div>
-
-					<div class="col-md-6 add-padding mini-padding " style="margin-bottom:10px">
-		                <a data-bind="attr: {href:'#carouselIR-' + $index()}, visible: CoursesViewModel.length > 4" role="button" data-slide="next" style="margin:0 5px" class="pull-right view-all-btn btn btn-default" href="#carouselIR-0">
-		                    <h5 style="margin-top:0;margin-bottom:0"><i class="fa fa-chevron-right" aria-hidden="true"></i></h5>
-		                </a>
-		                <a data-bind="attr: {href:'#carouselIR-' + $index()}, visible: CoursesViewModel.length > 4" role="button" data-slide="prev" style="margin:0 5px" class="pull-right view-all-btn btn btn-default" href="#carouselIR-0">
-		                    <h5 style="margin-top:0;margin-bottom:0"><i class="fa fa-chevron-left" aria-hidden="true"></i></h5>
-		                </a>
-		                <a data-bind="visible: CoursesViewModel.length > 4, attr: {href: '/khoa-hoc-' + NormalizedStringHyphen(Name) + extendparam}" class="pull-right sub-link-index view-all-btn" href="/khoa-hoc-php"><h5 style="margin-top:0;margin-bottom:0"><i class="fa fa-plus-circle" aria-hidden="true"></i> Xem thêm</h5></a>
-		            </div>
-
 		            <div class="col-md-12 no-padding detail">
 						<?php
 						$web = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$vitri.'&radius=5000&keyword='.$keyword.'&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg';
