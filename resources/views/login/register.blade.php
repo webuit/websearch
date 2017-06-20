@@ -1,6 +1,7 @@
 @include('layouts.header')
 
 <body style="background: white">
+	
 	<div class="container">
 		<div class="row main">
 			<div class="panel-heading">
@@ -37,8 +38,8 @@
 				<form class="form-horizontal" method="post" action="process_register">
 				{{ csrf_field() }}
 					<div class="form-group">
-						<label for="name" class="col-sm-2 control-label">Họ và Tên</label>
-						<div class="col-sm-10">
+						<!-- <label for="name" class="col-sm-2 control-label">Họ và Tên</label> -->
+						<div class="col-sm-12">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
 								<input type="text" class="form-control" name="name" id="name"  value="{{ old('name') }}" placeholder="Nhập họ và tên"/>
@@ -47,8 +48,8 @@
 					</div>
 
 					<div class="form-group">
-						<label for="email" class="col-sm-2 control-label">Địa chỉ Email</label>
-						<div class="col-sm-10">
+						<!-- <label for="email" class="col-sm-2 control-label">Địa chỉ Email</label> -->
+						<div class="col-sm-12">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
 								<input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}" placeholder="Nhập địa chỉ Email"/>
@@ -57,8 +58,8 @@
 					</div>
 
 					<div class="form-group">
-						<label for="password" class="col-sm-2 control-label">Mật khẩu</label>
-						<div class="col-sm-10">
+						<!-- <label for="password" class="col-sm-2 control-label">Mật khẩu</label> -->
+						<div class="col-sm-12">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
 								<input type="password" class="form-control" name="password" id="password"  placeholder="Nhập mật khẩu"/>
@@ -67,8 +68,8 @@
 					</div>
 
 					<div class="form-group">
-						<label for="confirm" class="col-sm-2 control-label">Nhập lại mật khẩu</label>
-						<div class="col-sm-10">
+						<!-- <label for="confirm" class="col-sm-2 control-label">Nhập lại mật khẩu</label> -->
+						<div class="col-sm-12">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
 								<input type="password" class="form-control" name="confirm_password" id="confirm_password"  placeholder="Nhập lại mật khẩu"/>
@@ -76,7 +77,7 @@
 						</div>
 					</div>
 
-					<div class="col-sm-10 col-sm-offset-2">
+					<div class="col-sm-10 col-sm-offset-1">
 						<div class="form-group ">
 						<button type="submit" class="btn btn-primary btn-lg btn-block login-button">Đăng ký</button>
 					</div>

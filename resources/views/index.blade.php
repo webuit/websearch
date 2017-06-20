@@ -63,7 +63,7 @@
 
 		<div class="row">
 			<div class="col-md-12">
-				<center><h2 style="color: #fff;font-size: 24px;font-weight: 600;">ẨM THỰC XUNG QUANH BẠN</h2></center>
+				<center><h2 style="color: #fff;font-size: 24px;font-weight: 600;">TÌM KIẾM XUNG QUANH BẠN</h2></center>
 			</div>
 		</div>
 
@@ -158,7 +158,6 @@
 <section class="content-container">
 	<div class="row">
 		<div class="col-md-12">
-			
 			<div id="menu-right" class="col-md-9 sidebar-right" >
 				<div class="col-md-12 realdata">
 		            <div class="col-md-12 no-padding detail">
@@ -173,6 +172,14 @@
 						    	$long = $value['geometry']['location']['lng'];
 						    	$end = $lat.','.$long;
 
+						    	$urldistance = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$vitri."&destinations=".$end."&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg");
+
+						    	$getjson = json_decode($urldistance, true);
+						    	foreach ($getjson['rows'] as $getdistance) {
+						    		$distance = $getdistance['elements'][0]['distance']['value'];
+    							$tmp_duration = $getdistance['elements'][0]['duration']['text'];
+    								$duration = str_replace("mins", "Phút", $tmp_duration);
+								   }
 						      	foreach ($value['photos'] as $array) {
 								    $photo = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=".$array['photo_reference']."&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg";
 								    	
@@ -192,7 +199,13 @@
 					              	<!-- <div style="height: 30px;margin-top: 10px;"><a class="course-title" href="shop-item.html">Bánh hiện đại</a></div> -->
 					              	<div style="margin-top: 10px;"><i class="fa fa-graduation-cap" aria-hidden="true"></i> <a href="#"><?php echo $value['name']; ?></a></div>
 
-					              	<div style="margin-top: 5px;margin-bottom: 30px;"><i class="fa fa-lg fa-map-marker icon-color-coffee"></i> <a href="direct/{{$vitri}}/{{$end}}/{{$ogrigin}}/{{$value['name']}}"><?php echo $value['vicinity']; ?></a></div>
+					              	<div style="margin-top: 5px;"><i class="fa fa-lg fa-map-marker icon-color-coffee"></i> <a href="direct/{{$vitri}}/{{$end}}/{{$ogrigin}}/{{$value['name']}}"><?php echo $value['vicinity']; ?></a></div>
+
+					              	<div style="margin-top: 10px;"><i class="glyphicon glyphicon-road
+" aria-hidden="true"></i> <a href="#">{{$distance/1000}} Km</a> <i class="glyphicon glyphicon glyphicon-hourglass" aria-hidden="true"></i> <a href="#"> {{$duration}}</a></div>
+
+					              	<!-- <div style="margin-top: 10px;"><i class="glyphicon glyphicon glyphicon-hourglass" aria-hidden="true"></i> <a href="#">{{$duration}}</a></div> -->
+
 					              </div>
 					              <div class="sticker sticker-new"></div>
 
@@ -212,7 +225,7 @@
 			</div>
 			<div id="menu-left" class="col-md-3 no-padding sidebar-left">
 				<div class="menu-left-fix">
-					<div style="height: 60px;background: #317e8c;">
+					<div style="height: 60px;background: #FE5F55;">
 						<p style="font-size: 16px;font-weight: bold;padding-left: 25px;color: #fff;padding-top: 20px;"> Bài viết mới nhất </p>
 					</div>
 
@@ -221,7 +234,7 @@
 						<div class="col-md-12">
 							<div class="col-md-5 col-xs-5" style="height: 150px;padding: 0 0 0 5px;">
 							<div class="info-image">
-								<img src="{{asset('upload/picture/post/').'/'.$valuePost->photo }}" alt="" height="100px" width="100%" style="border-radius: 5px;">
+								<img src="{{asset('upload/picture/post/').'/'.$valuePost->photo }}" alt="" height="150px" width="100%" style="border-radius: 5px;">
 							</div>
 							
 						</div>

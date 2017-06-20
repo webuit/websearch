@@ -128,18 +128,7 @@
 				
 			  </div>
 			</div>
-<div class="panel-group shadowpanel">
-<div class="panel panel-default">
-	<div class="panel-heading">
-	 	Quảng Cáo
-	</div>
-	<div class="panel-body">
-		<a href="#"><img class="img-responsive" src="https://lh4.googleusercontent.com/-np4UDMd9B3I/V-qHWTtl7NI/AAAAAAAAMPg/pMP_a1DYG_MaO9vo4SCQHuU_U0_FlP3OACL0B/s300-no/kiem-tien-voi-ung-dung-thanh-toan-viviet.gif"></a>
 
-
-	</div>
-</div>
-</div>
     </div>
 
   </div>

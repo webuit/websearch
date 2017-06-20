@@ -110,8 +110,11 @@
           <span> {{$destination}}</span>
         </div>
 
-        <div class="end" style="margin-top: 10px;">
-          <a href="{{url('move/'.$endposition.'')}}">Chế độ di chuyển</a>
+        <div class="end">
+          <a href="{{url('move/'.$endposition.'')}}" class="btn btn-info">
+            <span class="glyphicon glyphicon-search"></span> Chỉ Đường
+          </a>
+          
           
         </div>
       </div>

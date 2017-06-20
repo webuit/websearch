@@ -70,7 +70,7 @@
 	}
 
 	.panel-default>.panel-heading{
-		background: #317E8C;
+		background: #28AFB0;
 		color: #fff;
 	}
 	.btn{
@@ -95,6 +95,9 @@
 		display: inline-block;
 		margin-left: 10px;
 	}
+		#menu{
+			display: none;
+		}
       }
 </style>
 <body>
@@ -229,7 +232,7 @@
 						<a href="">{{$valueComment->user->name}}</a>
 					</div>
 					<br>
-					<div class="comment-time" style="display: inline-block;margin-left: -50px;">
+					<div class="comment-time" style="display: inline-block;margin-left: -25px;">
 						<i class="fa fa-clock-o houricon"></i><a href=""> {{$valueComment->created_at->format('d.m.Y H:i:s')}}</a>
 					</div>
 				</div>
@@ -259,7 +262,7 @@
 
 		<!-- End phần viết bình luận -->
 	</div>
-	<!-- <div class="col-md-3">
+	<div class="col-md-3">
 		<div class="panel-group shadowpanel">
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -269,7 +272,7 @@
 				@foreach($newRefPost as $valueNewRefPost)
 				<div class="col-md-12">
 					<div class="col-md-3 image-post">
-						<img width="60px" height="60px" src="{{asset('upload/picture/post/').'/'.$valueNewRefPost->photo}}" class="img-responsive img-thumbnail">
+						<img width="115px" height="60px" src="{{asset('upload/picture/post/').'/'.$valueNewRefPost->photo}}" class="img-responsive img-thumbnail">
 					</div>
 					<div class="col-md-9 post-content">
 						<a href="{{route('show_post')}}/{{$valueNewRefPost->id}}">{{$valueNewRefPost->title}}</a>
@@ -282,7 +285,7 @@
 			</div>
 		</div> 
 		</div>
-	</div> -->
+	</div>
 
 	<!-- End bài viết mới -->
 </div>

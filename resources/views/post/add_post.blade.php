@@ -21,7 +21,7 @@
 				<div class="panel-title text-center">
 					<h1 class="title">Đăng bài</h1>
 					<hr />
-					<h3><span style="color: red">*</span>:Bắt buộc phải nhập</h2>
+					<!-- <h3><span style="color: red">*</span>:Bắt buộc phải nhập</h2> -->
 				</div>
 			</div> 
 
