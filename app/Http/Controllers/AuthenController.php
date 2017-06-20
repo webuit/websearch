@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\User;
 use App\profile;
+use App\post;
 use Illuminate\Support\Facades\Auth;
 use DB;
 
@@ -126,8 +127,15 @@ class AuthenController extends Controller
     // Quản lý thông tin user
     public function getInfoUser($userId)
     {
+        // Thông tin user
         $user = User::find($userId);
-        return view('login.info_user', ['user'=>$user]);
+        if(Auth::user()->id == $userId)
+        {
+            // Các bài post 
+            $post = post::orderBy('created_at', 'desc')->take(5)->get();
+            return view('profile.profile', ['user'=>$user, 'post'=>$post]);
+        }
+        return redirect('login_form');
     }
     // Xử lý thay đổi profile
     public function getAjaxProfile(Request $request)

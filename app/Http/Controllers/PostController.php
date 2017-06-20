@@ -33,7 +33,7 @@ class PostController extends Controller
         // Các hình ảnh cho bài viết trên bảng picture post
         $picturePost = postPicture::where('post_id', $postId)->get();
         // Đổ dữ liệu comment ra
-        $comment = comment::where('post_id', $postId)->orderBy('created_at','desc')->get();
+        $comment = comment::where('post_id', $postId)->orderBy('created_at','desc')->paginate(5);
 
         return view('showpost.post', ['postId'=>$postId,'curentPost'=>$curentPost, 'newRefPost'=>$newRefPost, 'picturePost'=>$picturePost, 'comment'=>$comment]);
     }
@@ -248,7 +248,8 @@ class PostController extends Controller
         $comment->save();
 
         // Trả lại danh sách comment AJAX
-        $comment = comment::where('post_id', $idPost)->orderBy('created_at','desc')->get();
+        $urlPaginate = route('show_post'). "/". $idPost;
+        $comment = comment::where('post_id', $idPost)->orderBy('created_at','desc')->paginate(5)->setPath($urlPaginate);
         return view('post.ajax_comment', ['comment'=>$comment]);
     }
 

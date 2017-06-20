@@ -25,7 +25,9 @@ Route::post('process_login', 'AuthenController@postProcessLogin');
 // Đăng xuất
 Route::get('logout', 'AuthenController@getLogout');
 // Thông tin account user
-Route::get('info_user/{userId?}', 'AuthenController@getInfoUser')->middleware('user_login');;
+//Profile
+Route::get('profile/{userId?}', 'AuthenController@getInfoUser')->middleware('user_login');
+// Route::get('info_user/{userId?}', 'AuthenController@getInfoUser')->middleware('user_login');
 // Xử lý thay đổi profile (-avatar)
 Route::get('ajax_profile', 'AuthenController@getAjaxProfile')->name('ajax_profile');
 // thay đổi avatar
@@ -60,7 +62,3 @@ Route::get('aj_asdasdas', function(){
 
 // ----------------------------End Post bài----------------------------
 
-//Profile
-Route::get('profile',function(){
-	return view('profile.profile');
-});
