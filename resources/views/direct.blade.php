@@ -165,6 +165,7 @@
           }
         });
       }
+
     </script>
     
     @include('layouts.footer')
