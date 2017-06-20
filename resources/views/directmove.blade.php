@@ -15,9 +15,7 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Monoton|Ubuntu" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi-oPYdlnMKX_sG7qB-eFhmLh9vHE41n4&callback=initMap">
-    </script>
+  
    
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -178,6 +176,8 @@ function showPosition(position) {
       }
     </script>
 
-    
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi-oPYdlnMKX_sG7qB-eFhmLh9vHE41n4&callback=initMap">
+    </script>
   </body>
 </html>
