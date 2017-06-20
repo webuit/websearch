@@ -57,7 +57,7 @@ Route::get('ajax_comment', 'PostController@getAjaxComment')->name('ajax_comment'
 
 // test
 Route::get('aj_asdasdas', function(){	
-	return view('post.error_category');
+	return view('post.test');
 });
 
 // ----------------------------End Post bài----------------------------
