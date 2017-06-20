@@ -127,6 +127,14 @@
       </div>
     </div>
     <script src="{{asset('js/jquery.js')}}"></script>
+    <script>
+      $( window ).load(function() {
+    if (window.location.href.indexOf('reload')==-1) {
+         window.location.replace(window.location.href+'?reload');
+          }
+      });
+
+    </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi-oPYdlnMKX_sG7qB-eFhmLh9vHE41n4&callback=initMap">
     </script>
