@@ -172,14 +172,14 @@
 						    	$long = $value['geometry']['location']['lng'];
 						    	$end = $lat.','.$long;
 
-						    	$urldistance = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$vitri."&destinations=".$end."&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg");
+						    	// $urldistance = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$vitri."&destinations=".$end."&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg");
 
-						    	$getjson = json_decode($urldistance, true);
-						    	foreach ($getjson['rows'] as $getdistance) {
-						    		$distance = $getdistance['elements'][0]['distance']['value'];
-    							$tmp_duration = $getdistance['elements'][0]['duration']['text'];
-    								$duration = str_replace("mins", "Phút", $tmp_duration);
-								   }
+						    	// $getjson = json_decode($urldistance, true);
+						    	// foreach ($getjson['rows'] as $getdistance) {
+						    	// 	$distance = $getdistance['elements'][0]['distance']['value'];
+    							// $tmp_duration = $getdistance['elements'][0]['duration']['text'];
+    							// 	$duration = str_replace("mins", "Phút", $tmp_duration);
+								   // }
 						      	foreach ($value['photos'] as $array) {
 								    $photo = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=".$array['photo_reference']."&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg";
 								    	
