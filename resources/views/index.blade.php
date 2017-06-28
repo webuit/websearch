@@ -162,7 +162,7 @@
 				<div class="col-md-12 realdata">
 		            <div class="col-md-12 no-padding detail">
 						<?php
-						$web = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$vitri.'&radius=5000&keyword='.$keyword.'&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg';
+						$web = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$vitri.'&radius=5000&keyword='.$keyword.'&key=AIzaSyBw5E23XbrPtB6-JMrFXZ8cgTJ-dvrKrFE';
 						$web = str_replace(' ','-',$web);
 						  error_reporting(0);
 						    $url = file_get_contents($web);
@@ -172,6 +172,7 @@
 						    	$long = $value['geometry']['location']['lng'];
 						    	$end = $lat.','.$long;
 
+
 						    	// $urldistance = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$vitri."&destinations=".$end."&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg");
 
 						    	// $getjson = json_decode($urldistance, true);
@@ -180,8 +181,17 @@
     							// $tmp_duration = $getdistance['elements'][0]['duration']['text'];
     							// 	$duration = str_replace("mins", "Phút", $tmp_duration);
 								   // }
+
+						    	$urldistance = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$vitri."&destinations=".$end."&key=AIzaSyBw5E23XbrPtB6-JMrFXZ8cgTJ-dvrKrFE");
+
+						    	$getjson = json_decode($urldistance, true);
+						    	foreach ($getjson['rows'] as $getdistance) {
+						    		$distance = $getdistance['elements'][0]['distance']['value'];
+    							$tmp_duration = $getdistance['elements'][0]['duration']['text'];
+    								$duration = str_replace("mins", "Phút", $tmp_duration);
+								   }
 						      	foreach ($value['photos'] as $array) {
-								    $photo = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=".$array['photo_reference']."&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg";
+								    $photo = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=".$array['photo_reference']."&key=AIzaSyBw5E23XbrPtB6-JMrFXZ8cgTJ-dvrKrFE";
 								    	
 								  
 						        ?>

@@ -101,7 +101,7 @@
 				<label for="">Tên thể loại:</label>
 				<input type="text" class="form-control" id="" placeholder="Nhập tên thể loại" name="n_category" value="{{old('n_category')}}">
 			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button  style="margin-bottom: 20px; " type="submit" class="btn btn-primary">Submit</button>
 		</div>
 		</form>
 	</div>
