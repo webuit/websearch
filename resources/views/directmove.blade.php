@@ -117,7 +117,8 @@
     <div id="right-panel"></div>
   </div>
 </div>
-@include('layouts.footer')   
+@include('layouts.footer_direct')   
+
     
         <script>
 var x = document.getElementById("demo");

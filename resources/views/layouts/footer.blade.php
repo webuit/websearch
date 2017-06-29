@@ -21,22 +21,16 @@
 									<div class="footer-help-title" style="padding: 10px 0 0 10px;color: #666">
 											<a href="#"><b>Hỗ Trợ Khách Hàng</b></a>
 											<hr style="border-top: 1px solid #d1c9c9;">
-											<a href="#">FAQ & Support Centre</a><br>
-											<a href=""> Suggest a Product</a><br>
-											<a href="#"> Price Guarantee</a><br>
-											<a href=""> Security & privacy Policy</a><br>
-											<a href="#">Terms of Use</a>
+											<a href="#">Tư vấn</a><br>
+											<a href=""> Chăm sóc</a><br>
 									</div>
 								</div>
 								<div class="col-md-2">
 									<div class="footer-help-title" style="padding: 10px 0 0 10px;color: #666">
 											<a href="#"><b>Giới Thiệu</b></a>
 											<hr style="border-top: 1px solid #d1c9c9;">	
-											<a href="#">RedMArt Team</a>
-											<a href="#">Press</a>
-											<a href="#">Careers</a>
-											<a href="#">Contact Us</a>
-											<a href="#">What is Marketplace</a>
+											<a href="#">IT Food</a>
+											
 									</div>
 
 								</div>
@@ -44,9 +38,9 @@
 									<div class="footer-help-title" style="padding: 10px 0 0 10px;color: #666">
 											<a href="#"><b>Các Dịch Vụ</b></a>
 											<hr style="border-top: 1px solid #d1c9c9;">
-											<a href="#">Sell on RedMart</a>
-											<a href="#">Marketing Enquires</a>
-											<a href="#">Partner Portal</a>
+											<a href="#">Tìm kiếm nhà hàng</a>
+											<a href="#">Tìm kiếm khách sạn</a>
+											<a href="#">Đặt Món</a>
 											
 									</div>
 								</div>
@@ -76,7 +70,7 @@
 								</div>
 
 								<div class="col-md-4">
-									<p style="color: #666">At RedMart we have our very own fleet of delivery vans. Your order will be packed with care at our warehouse and delivered right to your door by our friendly RedMart team.</p>
+									<p style="color: #666"></p>
 								</div>
 
 								<div class="col-md-4">
@@ -94,8 +88,9 @@
 glyphicon glyphicon-"></span>
   </span>
 </div>
-<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg
-"></script> -->
+<script id="key" type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg
+"></script>
+
 <script>
       function initMap() {
         var geocoder = new google.maps.Geocoder();

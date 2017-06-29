@@ -173,15 +173,6 @@
 						    	$end = $lat.','.$long;
 
 
-						    	// $urldistance = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$vitri."&destinations=".$end."&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg");
-
-						    	// $getjson = json_decode($urldistance, true);
-						    	// foreach ($getjson['rows'] as $getdistance) {
-						    	// 	$distance = $getdistance['elements'][0]['distance']['value'];
-    							// $tmp_duration = $getdistance['elements'][0]['duration']['text'];
-    							// 	$duration = str_replace("mins", "Phút", $tmp_duration);
-								   // }
-
 						    	$urldistance = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$vitri."&destinations=".$end."&key=AIzaSyBw5E23XbrPtB6-JMrFXZ8cgTJ-dvrKrFE");
 
 						    	$getjson = json_decode($urldistance, true);
@@ -244,7 +235,7 @@
 						<div class="col-md-12">
 							<div class="col-md-5 col-xs-5" style="height: 150px;padding: 0 0 0 5px;">
 							<div class="info-image">
-								<img src="{{asset('upload/picture/post/').'/'.$valuePost->photo }}" alt="" height="150px" width="100%" style="border-radius: 5px;">
+								<img src="{{asset('images/').'/'.$valuePost->photo }}" alt="" height="150px" width="100%" style="border-radius: 5px;">
 							</div>
 							
 						</div>

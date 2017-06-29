@@ -22,7 +22,7 @@
         background: #00979C;
        }
      #map {
-        height: 600px;
+        height: 800px;
         width: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
@@ -130,17 +130,19 @@
       </div>
     </div>
     <script src="{{asset('js/jquery.js')}}"></script>
-    <script>
+    
+
+    <!-- <script>
       $( window ).load(function() {
     if (window.location.href.indexOf('reload')==-1) {
          window.location.replace(window.location.href+'?reload');
           }
       });
 
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi-oPYdlnMKX_sG7qB-eFhmLh9vHE41n4&callback=initMap">
-    </script>
+    </script> -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg&callback=initMap"
+    type="text/javascript"></script>
+    
     <script>
 
       function initMap() {
@@ -178,7 +180,6 @@
       }
 
     </script>
-    
-    @include('layouts.footer')
+    @include('layouts.footer_direct')
   </body>
 </html>

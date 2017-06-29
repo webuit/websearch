@@ -18,10 +18,9 @@
     
     
 	<link href="https://fonts.googleapis.com/css?family=Monoton|Ubuntu" rel="stylesheet">  
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyD0FewE444l6H8yw3-XVMOxF_kS27xIcAg"></script> 
-    <script src="{{asset('js/jquery.js')}}"></script>
+    
     <link href="https://fonts.googleapis.com/css?family=Monoton|Ubuntu" rel="stylesheet">  
-    <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyB1R-BXoJrqQYkjReXGvPsWo_FZv8bgF1w"></script>   -->
+    
     <script type="text/javascript" language="javascript" src="{{asset('ckeditor/ckeditor.js')}}" ></script>
 
 </head>
